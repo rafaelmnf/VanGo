@@ -1,3 +1,14 @@
+/*  BREVE EXPLICAÇÃO SOBRE ALGUMAS CLASSES E O QUE FAZEM
+<   CLASSE: 'LOGO' = CLASSE DE EXIBIÇÃO DO LOGO DA PÁGINA>
+<   CLASSES: 'NAV E NAV-LINKS' = FORMATAR A BARRA DE NAVEGAÇÃO COMO LINKS DE AÇÃO <a>>
+<   CLASSE: 'CARD-ANIMATED-BORDER' = CLASSE PARA ANIMAR A BORDA DA CARD NA TELA INICIAL>
+<   CLASSES: 'MESSAGE-DIV, LEFT-MESSAGE E RIGHT-MESSAGE' = CONTROLAM FORMATAÇÃO E ORGANIZAÇÃO DE
+MESSAGENS NA SEÇÃO HERO>
+<   CLASSE: 'HIDDEN' = TORNA O ESTADO INICIAL DE ELEMENTOS COMO 'ESCONDIDOS', PARA QUE AO ENTRAR
+EM CENA OCORRA UMA ANIMAÇÃO>
+<   CLASSES: 'SISTEMA-INOVADOR E ATRIBUTOS-INOVADOR' = ESTILIZAÇÃO DA SEÇÃO "SOBRE NÓS">
+<   CLASSE: 'IMAGE' = CONTROLA O ESTILO DAS IMAGENS NA SEÇÃO DE IMAGENS ARRASTAVÉIS> */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +17,7 @@
   
   body {
     font-family: Poppins;
-    height: 500vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -260,7 +271,7 @@
   
   /* 
   ------------------------------------MAP------------------------------------------------------------- */
-    #map {
+  #map {
     height: 80%;
     width: 100%;
   }
@@ -332,27 +343,73 @@
 
 /*ESTILOS DO LOGIN*/
 
-.forms-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
+#body-login{
+  background-color: #272727;
+  justify-content: center;
+}
+
+.login{
+    width: 500px;
+    padding: 40px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.form {
     display: flex;
     flex-direction: column;
 }
 
-.form h2 + p{
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    margin-bottom: 30px;
+.login h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 30px;
 }
 
-.form-group {
+.login-group {
     margin-bottom: 15px;
+}
+.login-group label{
+    margin-bottom: 5px;
+    display: block;
+    font-size: 18px;
+}
+.login-group input{
+    margin: 0;
+    height: 40px;
+    width: 100%;
+}
+
+.esqueceu-senha, a{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 5px;
+    color: #000;
+    text-decoration: underline;
+}
+
+.botao-login{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 0 0;
+}
+.botao-login button{
+  border-radius: 10px;
+  width: 80%;
+  padding: 15px;
+}
+
+.sem-conta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.sem-conta a{
+  margin-left: 20px;
+  color: #000;
+  text-decoration: underline;
+  background-color: #b7b8ff;
+  border-radius: 5px;
+  padding: 7px;
 }

@@ -17,17 +17,48 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   
   body {
     font-family: Poppins;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
   }
-  
-  a{
-    text-decoration: none;
+  /* ------------------SCROLL-BAR-PERSONALIZADA----------------- */
+  body::-webkit-scrollbar {
+    width: 5px;
   }
+  
+  body::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
+  
+/* ------------------------DEFINIÇÕES GLOBAIS---------------------- */
+ul{
+  list-style: none;
+}
+
+p{
+  font-size: 20px;
+}
+
+h1{
+  font-size: 30px;
+}
+
+h3{
+  font-size: 20px;
+}
+
+a{
+  text-decoration: none;
+}
+
   
   /* ----------------------------------INDEX--------------------------------- */
   
@@ -44,7 +75,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
       #e0aaff,
       #ffffff
     );
-    height: 200vh;
+    min-height: 100vh;
     width: 100%;
     color: white;
     z-index: 0;
@@ -75,7 +106,8 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     color: white;
     text-decoration: none;
   }
-  
+
+
   .menu-topo {
     display: flex;
     justify-content: right;
@@ -121,8 +153,12 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   
   #msg-principal {
     padding: 0px 100px 50px 150px; 
+  }
+
+  #msg-principal p{
     font-size: 80px;
   }
+  
   
   /* ---------------------------------CARDS--------------------------------------- */
   
@@ -200,8 +236,8 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   .msg1{
     height: 400px;
     width: 600px;
-    top: 0px;
-    right: 120px;
+    top: 20px;
+    right: 150px;
     position: absolute;
   }
   
@@ -213,9 +249,10 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     height: 400px;
     width: 800px;
     top: 320px;
-    left: 120px;
+    left: 150px;
     position: absolute;
   }
+  
   
   
   /* -----------------------------MAIS-----------------------------------
@@ -255,7 +292,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     display: contents; /* Remove a caixa de div para que img e p sejam tratados diretamente */
   }
   
-  .atributos-inovador img{
+  .atributos-inovador svg{
     grid-row: 1;
     height: 60px;
     width: 60px;
@@ -273,33 +310,95 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   
   /* 
   ------------------------------------MAP------------------------------------------------------------- */
-  #map {
-    height: 80%;
-    width: 100%;
-  }
-  
-  #controls {
-    height: 20%;
-    padding: 10px;
-  }
-  
-  input {
-    padding: 8px;
-    margin: 5px;
-    width: 300px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #555;
-  }
+/* 
+------------------------------------MAPS-HTML------------------------------------------------------------- */
+#hero-section-maps {
+  background: linear-gradient(
+    to bottom,
+    #10002b,
+    #240046,
+    #3c096c,
+    #5a189a,
+    #7b2cbf,
+    #9d4edd,
+    #c77dff,
+    #e0aaff,
+    #ffffff
+  );
+  max-height: 100vh;
+  width: 100%;
+  color: white;
+  z-index: 0;
+}
+
+
+
+.map-container{
+  height: 90vh;
+  display: flex;
+  padding: 20px 150px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+#map {
+  height: 60vh;
+  width: 30vw;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+.controls {
+  margin: 20px 0;
+}
+.map-container input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 300px;
+}
+.map-container button {
+  padding: 8px 16px;
+}
+
+.left-message-maps{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40vw;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#msg-maps p{
+  font-size: 50px;
+}
+
+.controls{
+  display: flex;
+
+}
+
+.controls input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-family: Poppins;
+}
+
+.controls button {
+  font-family: Poppins;
+  background-color: #5a189a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #3c096c;
+}
   /* -------------------------------ANIMAÇÃO--------------------- */
   .hidden {
     opacity: 0;
@@ -309,41 +408,200 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     transition: all 1.5s;
   }
   
+  .hiddenL {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateX(-50%); 
+    /* translateX -> -100% para vir da esquerda e 100% para vir da direita */
+    transition: all 2s;
+  }
+  
+  .hiddenR {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateX(50%); 
+    /* translateX -> -100% para vir da esquerda e 100% para vir da direita */
+    transition: all 2s;
+  }
+  
   .show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
   }
   /* -------------------------------IMAGES-ANIMATION-------------------------- */
-  
-  #image-section{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-  }
-  #image-track > .image {
-    width: 40vmin;
-    height: 56vmin;
-    object-fit: cover;
-    object-position: 100% center;
-  }
-  
-  #image-track {
-    display: flex;
-    gap: 4vmin;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(0%, -50%);
-  }
-  
-  #image-track img{
-    border-radius: 10px;
-  }
+
+#image-section{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+#image-track > .card-image {
+  position: relative;
+
+}
+#image-track > .card-image img{
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+  border-radius: 10px;
+
+}
+
+.card-image h1{
+  position: absolute;
+  top:50px;
+  right: 40px;
+  font-size: 40px;
+}
+
+.text{
+  position: absolute;
+  top: 100px;
+  right: 40px;
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
 
 
+/* ---------------------------APARECE E DESAPARECE MENSAGEM SOBRE------------------------ */
 
-/*ESTILOS DO LOGIN*/
+#sobre{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.seta-icon{
+  height: 70px;
+  width: 70px;
+}
+
+.sobre-message{
+  text-align: center;
+  height: 300px;
+  width: 550px;
+  margin: 150px;
+}
+
+#sobre-message1, #sobre-message2{
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease
+  }
+
+  #sobre-message2{
+    opacity: 0;
+    transition: opacity 0.5s ease
+    }
+
+#sobre-message1.invisible, #sobre-message2.invisible {
+  opacity: 0;
+}
+
+#sobre-message1.visible, #sobre-message2.visible {
+  opacity: 1;
+}
+
+/* --------------------FOOTER--------------------- */
+
+
+.footer-container {
+  margin-top: 20vh;
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-left{
+  padding: 100px;
+  text-align: start;
+  width: 50%;
+}
+
+
+.footer-left input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.footer-left button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-left button:hover {
+  background-color: #4d4d4d;
+}
+
+.footer-divider {
+  height:80%;
+  width: 0%;
+  border: 1px solid #ccc;
+}
+
+.footer-right {
+  padding: 100px;
+  display: flex;
+  width: 50%;
+  gap: 100px;
+}
+
+.footer-column p{
+}
+
+.footer-column h3{
+  margin-bottom: 10px;
+}
+
+.footer-column li {
+  margin-bottom: 10px; 
+}
+
+.footer-column a {
+  color: #333;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: #ccc;
+}
+
+.footer-bottom p{
+  color: white;
+}
+
+
+/*--------------------------ESTILOS DO LOGIN---------------------------*/
 
 #body-login{
   background-color: #272727;

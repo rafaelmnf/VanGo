@@ -7,6 +7,8 @@
 // ANIMAÇÃO DAS IMAGENS AMOSTRA DE ROLAMENTO LATERAL
 
 const track = document.getElementById("image-track");
+const message1 = document.getElementById("sobre-message1");
+const message2 = document.getElementById("sobre-message2");
 
 window.onmousedown = (e) => {
   track.dataset.mouseDownAt = e.clientX;
@@ -24,7 +26,21 @@ window.onmousemove = (e) => {
 
   track.dataset.percentage = nextPercentage;
 
+  // Lógica para exibir/ocultar as mensagens
+  if (nextPercentage > -15) {
+    message1.classList.remove("invisible");
+    message2.classList.add("invisible");
 
+  } else if (nextPercentage < -85) {
+    message2.classList.remove("invisible");
+    message2.classList.add("visible")
+    message1.classList.add("invisible");
+
+  } else {
+    message2.classList.remove("visible")
+    message1.classList.add("invisible");
+    message2.classList.add("invisible");
+  }
 
   track.animate(
     {
@@ -49,6 +65,7 @@ window.onmouseup = () => {
 };
 
 
+
 // ANIMAÇÃO DE TEXTO APARECER 
 
 const observer = new IntersectionObserver((entries) => {
@@ -64,6 +81,14 @@ const observer = new IntersectionObserver((entries) => {
   
   const hiddenElements = document.querySelectorAll('.hidden');
   hiddenElements.forEach((el) => observer.observe(el));
+
+  const hiddenElementsL = document.querySelectorAll('.hiddenL');
+hiddenElementsL.forEach((el) => observer.observe(el));
+
+const hiddenElementsR = document.querySelectorAll('.hiddenR');
+hiddenElementsR.forEach((el) => observer.observe(el));
+
+
 
 
 

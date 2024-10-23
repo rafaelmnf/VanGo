@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body id="body-login">
+
+    <div class="login-container">
+
+        <form class="login" id="loginForm">
+            <h1>Login</h1>
+            <div class="login-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="login-group">
+                <label for="senha">Senha:</label>
+                <input type="senha" id="senha" name="senha" placeholder="Senha" required>
+                
+            </div>
+            
+            <div class="esqueceu-senha">
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+            
+            <div class="botao-login">
+                <button type="submit">LOGIN</button>
+            </div>
+
+            <div class="sem-conta">
+                <p>Não tem uma conta?</p>
+                <a href="#">Inscreva-se</a>
+            </div>
+            
+
+        </form>
+
+        <form id="verificationLogin">
+            <h2>Código de Verificação</h2>
+            <p>Para garantir a segurança, enviamos um código para o seu e-mail. Insira-o abaixo:</p>
+            <div>
+                <label for="verificationCode">Código:</label>
+                <input type="text" id="verificationCode" name="verificationCode" placeholder="Código de verificação" required>
+            </div>
+
+            <div>
+                <button type="submit">Verificar</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

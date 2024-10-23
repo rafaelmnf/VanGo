@@ -52,7 +52,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   
   /* ----------------------------------HEADER----------------------------------- */
   
-  .header {
+  .barra-de-cima {
     display: flex;
     align-items: center;
     padding: 30px 150px;
@@ -70,18 +70,20 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     margin-right: 15px;
   }
   
-  #logo {
+  #logo{
     font-size: 24px;
+    color: white;
+    text-decoration: none;
   }
   
-  .nav {
+  .menu-topo {
     display: flex;
     justify-content: right;
     align-items: center;
     width: 100%;
   }
   
-  .nav-links {
+  .nav-topo-itens {
     list-style: none;
     display: flex;
   }
@@ -91,7 +93,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
     background-color: #240046;
   }
   
-  .nav-links a {
+  .nav-topo-itens a {
     font-size: 14px;
     text-decoration: none;
     padding: 10px 20px;

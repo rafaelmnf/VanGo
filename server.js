@@ -1,4 +1,4 @@
-// DEPÊNDENCIAS
+// DEPENDÊNCIAS
 const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -11,12 +11,12 @@ app.use(express.static(path.join(__dirname, 'public'))); // deixar com css
 
 //ROTA PARA MOSTRAR TELA INICIAL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'index.html'));
+    res.sendFile(path.join(__dirname,'public', 'HTML', 'index.html'));
   });
 
 
 app.get('/login',  (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'login.html'));
+    res.sendFile(path.join(__dirname,'public', 'HTML', 'login.html'));
   });
 
 // ENVIO DE EMAILS
@@ -90,7 +90,6 @@ app.post('/send-message', (req, res) => {
     return res.status(200).json({ message: 'Mensagem enviada com sucesso!' });
   });
 });
-
 
 
 //RODAR O SERVIDOR

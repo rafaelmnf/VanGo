@@ -1,9 +1,4 @@
 
-
-
-
-
-
 // ANIMAÇÃO DAS IMAGENS AMOSTRA DE ROLAMENTO LATERAL
 
 const track = document.getElementById("image-track");

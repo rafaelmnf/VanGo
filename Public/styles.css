@@ -179,11 +179,15 @@ a{
     transition: background-color 0.3s ease
   
   }
-  
+
+  .card-animated-border a{
+  text-decoration: none;
+  }
+
   .card-animated-border:hover{
     background-color: #272a36;
   }
-  
+
   .card-animated-border h2 {
     color: white;
     font-size: 20px;
@@ -492,7 +496,7 @@ a{
   text-align: center;
   height: 300px;
   width: 550px;
-  margin: 150px;
+  margin: 40px;
 }
 
 #sobre-message1, #sobre-message2{

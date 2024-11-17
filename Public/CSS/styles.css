@@ -62,7 +62,7 @@ a{
   
   /* ----------------------------------INDEX--------------------------------- */
   
-  #hero-section {
+  .hero-section {
     background: linear-gradient(
       to bottom,
       #10002b,
@@ -75,10 +75,8 @@ a{
       #e0aaff,
       #ffffff
     );
-    min-height: 100vh;
     width: 100%;
-    color: white;
-    z-index: 0;
+    height: 100%;
   }
   
   /* ----------------------------------HEADER----------------------------------- */
@@ -93,15 +91,10 @@ a{
   .logo {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
   
-  .logo-img {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-  }
-  
-  #logo{
+  .logo-txt{
     font-size: 24px;
     color: white;
     text-decoration: none;
@@ -116,17 +109,18 @@ a{
   }
   
   .nav-topo-itens {
-    list-style: none;
+    list-style: none; /*para que não apareça a lista na vertical*/
     display: flex;
+    gap: 20px;
   }
   
-  .btn:hover {
+  .btn-menu:hover {
     cursor: pointer;
     background-color: #240046;
   }
   
   .nav-topo-itens a {
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     padding: 10px 20px;
     color: white;
@@ -135,49 +129,40 @@ a{
   }
 
   /* -----------------------------------------------LEFT-MESSAGE---------------------------------- */
-  .message-div {
+  .hero-txt-div {
     display: flex;
     flex-direction: column;
-    height: 90vh;
-  }
-  
-  .left-message{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+    width: 40%;
     height: 100vh;
     justify-content: center;
-    align-items:start;
-  
+    margin-left: 150px;
   }
   
-  #msg-principal {
-    padding: 0px 100px 50px 150px; 
+  #txt-hero {
+    padding: 0 0 50px 0; 
   }
 
-  #msg-principal p{
+  #txt-hero p{
     font-size: 80px;
+    color: rgb(255, 255, 255);
   }
-  
   
   /* ---------------------------------CARDS--------------------------------------- */
   
-  .card-animated-border {
-    margin-left: 150px;
+  .card-animated-border{
     background-color: #1c1f2b;
     color: white;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
     justify-content: center;
     text-align: center;
     width: 300px;
     height: 70px;
     border-radius: 25px;
     position: relative;
-    transition: background-color 0.3s ease
-  
+    transition: background-color 0.3s ease;
+    margin: 0;
   }
   
   .card-animated-border:hover{
@@ -226,7 +211,7 @@ a{
     }
   }
   /* ---------------------------------RIGHT-MESSAGE-------------------------------------- */
-  .right-message{
+  .roll-txt{
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -257,9 +242,10 @@ a{
   
   /* -----------------------------MAIS-----------------------------------
   */
-  #mais-section{
+  .mais-section{
     width: 100%;
-    height: 80vh;
+    height: auto;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
   }
@@ -267,10 +253,8 @@ a{
   .sistema-inovador{
     display: flex;
     flex-direction: column;
-    justify-content: end;
     align-items: center;
-    min-height: 30vh;
-    
+    height: 10vh;
   }
   
   .sistema-inovador h1{
@@ -285,7 +269,7 @@ a{
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr 1fr;
-    min-height: 50vh;
+    height: auto;
     margin: 100px;
   }
   .atributos-inovador div {
@@ -307,6 +291,168 @@ a{
     text-align: center;
     margin: 20px;
   }
+
+  /* -------------------------------IMAGES-ANIMATION-------------------------- */
+
+#image-section{
+  width: 100%;
+  height: auto;
+  margin: 150px 0 20px 0px;
+  position: relative;
+}
+#image-track > .card-image {
+  position: relative;
+
+}
+#image-track > .card-image img{
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+  border-radius: 10px;
+
+}
+
+.card-image h1{
+  position: absolute;
+  top:50px;
+  right: 40px;
+  font-size: 40px;
+}
+
+.text{
+  position: absolute;
+  top: 100px;
+  right: 40px;
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+
+/* ---------------------------APARECE E DESAPARECE MENSAGEM SOBRE------------------------ */
+
+#sobre{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sobre-message{
+  text-align: center;
+  height: 300px;
+  width: 550px;
+  margin: 150px;
+}
+
+#sobre-message1, #sobre-message2{
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease
+  }
+
+  #sobre-message2{
+    opacity: 0;
+    transition: opacity 0.5s ease
+    }
+
+#sobre-message1.invisible, #sobre-message2.invisible {
+  opacity: 0;
+}
+
+#sobre-message1.visible, #sobre-message2.visible {
+  opacity: 1;
+}
+
+/* --------------------FOOTER--------------------- */
+
+
+.footer-container {
+  margin-top: 20vh;
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-left{
+  padding: 100px;
+  text-align: start;
+  width: 50%;
+}
+
+.footer-left input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.footer-left button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-left button:hover {
+  background-color: #4d4d4d;
+}
+
+.footer-divider {
+  height:80%;
+  width: 0%;
+  border: 1px solid #ccc;
+}
+
+.footer-right {
+  padding: 100px;
+  display: flex;
+  width: 50%;
+  gap: 100px;
+}
+
+.footer-column h3{
+  margin-bottom: 10px;
+}
+
+.footer-column li {
+  margin-bottom: 10px; 
+}
+
+.footer-column a {
+  color: #333;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: #ccc;
+}
+
+.footer-bottom p{
+  color: white;
+}
   
   /* 
   ------------------------------------MAP------------------------------------------------------------- */
@@ -330,8 +476,6 @@ a{
   color: white;
   z-index: 0;
 }
-
-
 
 .map-container{
   height: 90vh;
@@ -429,177 +573,6 @@ a{
     filter: blur(0);
     transform: translateX(0);
   }
-  /* -------------------------------IMAGES-ANIMATION-------------------------- */
-
-#image-section{
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-#image-track > .card-image {
-  position: relative;
-
-}
-#image-track > .card-image img{
-  width: 40vmin;
-  height: 56vmin;
-  object-fit: cover;
-  object-position: 100% center;
-  border-radius: 10px;
-
-}
-
-.card-image h1{
-  position: absolute;
-  top:50px;
-  right: 40px;
-  font-size: 40px;
-}
-
-.text{
-  position: absolute;
-  top: 100px;
-  right: 40px;
-}
-
-#image-track {
-  display: flex;
-  gap: 4vmin;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(0%, -50%);
-}
-
-
-/* ---------------------------APARECE E DESAPARECE MENSAGEM SOBRE------------------------ */
-
-#sobre{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-}
-
-.seta-icon{
-  height: 70px;
-  width: 70px;
-}
-
-.sobre-message{
-  text-align: center;
-  height: 300px;
-  width: 550px;
-  margin: 150px;
-}
-
-#sobre-message1, #sobre-message2{
-  height: auto;
-  width: auto;
-  display: flex;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 0.5s ease
-  }
-
-  #sobre-message2{
-    opacity: 0;
-    transition: opacity 0.5s ease
-    }
-
-#sobre-message1.invisible, #sobre-message2.invisible {
-  opacity: 0;
-}
-
-#sobre-message1.visible, #sobre-message2.visible {
-  opacity: 1;
-}
-
-/* --------------------FOOTER--------------------- */
-
-
-.footer-container {
-  margin-top: 20vh;
-  height: 70vh;
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-}
-
-.footer-left{
-  padding: 100px;
-  text-align: start;
-  width: 50%;
-}
-
-
-.footer-left input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.footer-left button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  margin-left: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.footer-left button:hover {
-  background-color: #4d4d4d;
-}
-
-.footer-divider {
-  height:80%;
-  width: 0%;
-  border: 1px solid #ccc;
-}
-
-.footer-right {
-  padding: 100px;
-  display: flex;
-  width: 50%;
-  gap: 100px;
-}
-
-.footer-column p{
-}
-
-.footer-column h3{
-  margin-bottom: 10px;
-}
-
-.footer-column li {
-  margin-bottom: 10px; 
-}
-
-.footer-column a {
-  color: #333;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 50px;
-  background-color: #ccc;
-}
-
-.footer-bottom p{
-  color: white;
-}
-
 
 /*--------------------------ESTILOS DO LOGIN---------------------------*/
 
@@ -639,7 +612,7 @@ a{
     width: 100%;
 }
 
-.esqueceu-senha, a{
+.esqueceu-senha a{
     display: flex;
     justify-content: end;
     margin-bottom: 5px;

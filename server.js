@@ -1,4 +1,4 @@
-// DEPÊNDENCIAS
+// DEPENDÊNCIAS
 const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -6,18 +6,28 @@ const app = express();
 require('dotenv').config()
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // deixar com css
+app.use(express.static(path.join(__dirname, 'Public'))); // deixar com css
 
 
 //ROTA PARA MOSTRAR TELA INICIAL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'index.html'));
+    res.sendFile(path.join(__dirname,'Public', 'HTML', 'index.html'));
   });
 
-
+//ROTA PARA MOSTRAR LOGIN
 app.get('/login',  (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'login.html'));
+    res.sendFile(path.join(__dirname,'Public', 'HTML', 'login.html'));
   });
+
+//ROTA PARA MOSTRAR REQUISIÇÃO DE LOGIN
+app.get('/request-login',  (req, res) => {
+  res.sendFile(path.join(__dirname,'Public', 'HTML', 'request-login.html'));
+});
+
+//ROTA PARA MOSTRAR LOGIN
+app.get('/maps',  (req, res) => {
+  res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
+});
 
 // ENVIO DE EMAILS
 // Configurando o nodemailer para enviar e-mails
@@ -90,7 +100,6 @@ app.post('/send-message', (req, res) => {
     return res.status(200).json({ message: 'Mensagem enviada com sucesso!' });
   });
 });
-
 
 
 //RODAR O SERVIDOR

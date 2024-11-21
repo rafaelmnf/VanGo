@@ -8,6 +8,29 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'Public'))); // deixar com css
 
+//MAPS
+const API_MAPS = process.env.API_MAPS; // Recupera a chave do ambiente
+// Endpoint para calcular a rota
+app.get('/calculate-route', async (req, res) => {
+    const { origin, destination } = req.query;
+
+    if (!origin || !destination) {
+        return res.status(400).send("Por favor, insira origem e destino.");
+    }
+
+    // URL da API Google Maps
+    const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${API_MAPS}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        res.json(data); // Retorna a resposta da API ao frontend
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error calculating route');
+    }
+});
+
 
 //ROTA PARA MOSTRAR TELA INICIAL
 app.get('/', (req, res) => {

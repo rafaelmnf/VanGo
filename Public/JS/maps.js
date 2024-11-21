@@ -16,17 +16,22 @@ document.addEventListener("DOMContentLoaded", function () {
       // Liga o renderizador ao mapa
       directionsRenderer.setMap(map);
     }
-  
+    
     // Calcula e exibe a rota
     function calculateRoute() {
       const origin = document.getElementById("origin").value;
       const destination = document.getElementById("destination").value;
-  
-      if (!origin || !destination) {
-        alert("Por favor, insira origem e destino.");
-        return;
-      }
-  
+        
+      // Verifica se os campos não estão vazios
+    if (origin && destination) {
+        fetch(`/calculate-route?origin=${origin}&destination=${destination}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Aqui você pode tratar a resposta para exibir no mapa
+            })
+            .catch(error => console.error('Erro ao calcular rota:', error));
+        }
+
       const request = {
         origin: origin,
         destination: destination,

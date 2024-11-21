@@ -14,9 +14,13 @@
 
     <link rel="stylesheet" href="/CSS/styles.css">
 
-    <!-- Incluindo a API do Google Maps com sua chave de API -->
+    <!--Flatpickr = biblioteca para manipular o calendário-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-    <script defer src="/JS/main.js"></script>
+    <!-- Incluindo a API do Google Maps com sua chave de API -->
+    <script defer src=""></script>
+    <script defer src="/JS/maps.js"></script>
 </head>
 
 <body>
@@ -44,38 +48,38 @@
                     <div class="rota">
                         <input type="text" id="origin" placeholder="Digite a origem">
                         <input type="text" id="destination" placeholder="Digite o destino">
-                        <button onclick="calculateRoute()">Calcular Rota</button>
+                        <button type="button" id="calculate-route">Calcular Rota</button>
                     </div>
-                    
-                    <div class="data">
-                        <label for="day">Escolha um dia</label>
-                            <select id="day" name="day" required>
-                                <option value="hoje">Hoje, qua., 20 de nov.</option>
-                                <option value="amanha">Amanhã, qui., 21 de nov.</option>
-                                <option value="sexta">sex., 22 de nov.</option>
-                                <option value="sabado">sáb., 23 de nov.</option>
-                                <option value="domingo">dom., 24 de nov.</option>
-                                <option value="segunda">seg., 25 de nov.</option>
-                                <option value="terca">ter., 26 de nov.</option>
-                            </select>
-                            
-                        <label for="frequency">Frequência</label>
-                            <select id="frequency" name="frequency" required>
-                                <option value="uma-vez">Uma vez</option>
-                                <option value="diario">Diário</option>
-                                <option value="semanal">Semanal</option>
-                            </select>
-                            
-                        <label for="time">Horário</label>
-                            <select id="time" name="time" required>
-                                <option value="manha">Manhã</option>
-                                <option value="tarde">Tarde</option>
-                                <option value="noite">Noite</option>
-                            </select>
-                            <!--Se der adicionar um calendario interativo ao lado-->
+                    <div id="divisor-data-calendario">
+                        <div class="data">
+                            <label for="dia">Escolha um dia:</label>
+                                <select id="dia" name="dia" required>
+                                    <option value="segunda">Segunda</option>
+                                    <option value="terca">Terça</option>
+                                    <option value="quarta">Quarta</option>
+                                    <option value="quinta">Quinta</option>
+                                    <option value="sexta">Sexta</option>
+                                    <option value="sabado">Sabado</option>
+                                    <option value="domingo">Domingo</option>
+                                </select>
+                                
+                            <label for="frequencia">Frequência:</label>
+                                <select id="frequencia" name="frequencia" required>
+                                    <option value="uma-vez">Uma vez</option>
+                                    <option value="toda-semana">Toda semana</option>
+                                </select>
+                                
+                            <label for="hora">Horário de Ida:</label>
+                                <select id="ida-select" required></select>
+                            <label for="volta-select">Horário de volta:</label>
+                                <select id="volta-select"></select>
+                        </div>
+                        <div class="calendario"> 
+                            <!--calendario interativo ao lado-->
+                            <div id="calendario" class="flatpickr-calendar"></div>
+                        </div>
                     </div>
-                            <!--Ajustar botao p ficar max width, cansei-->
-                    <button type="submit">Confirmar</button>
+                    <button type="submit">Procurar</button>
                 </form>
             </div>
             <div id="map">
@@ -84,9 +88,4 @@
         </div>
 
     </section>
-    <script src="/JS/maps.js"></script>
-    <!-- API -->
-    <script src=""
-        async defer></script>
 </body>
-

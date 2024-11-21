@@ -517,7 +517,7 @@ a{
 }
 
 .left-side-maps p{
-  font-size: 50px;
+  font-size: 44px;
   color: white;
 }
 
@@ -546,7 +546,7 @@ a{
   color: white;
   border: none;
   border-radius: 10px;
-  margin-left: 4px;
+  width: 100%;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -572,6 +572,32 @@ a{
 
 .data label{
   color: white;
+}
+
+#divisor-data-calendario{
+  display: flex;
+  gap: 70px;
+}
+
+#calendario {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.flatpickr-day.selected {
+  background-color: #6200ea !important; /* Cor de fundo */
+  color: #ffffff !important; /* Cor do texto */
+  border-color: #00000000 !important; /* Borda do dia selecionado */
+}
+
+/* Reduz o tamanho geral do calendário */
+.flatpickr-calendar {
+  transform: scale(0.9); /* Reduz para 80% do tamanho original */
+  transform-origin: top left; /* Define o ponto de origem da transformação */
 }
 
 #map {

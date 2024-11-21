@@ -77,7 +77,7 @@ a{
     );
     width: 100%;
     height: 100%;
-    z-index: -2;
+    z-index: 0;
   }
   
   /* ----------------------------------HEADER----------------------------------- */
@@ -352,7 +352,7 @@ a{
   text-align: center;
   height: 300px;
   width: 550px;
-  margin: 40px;
+  margin: 100px;
 }
 
 #sobre-message1, #sobre-message2{
@@ -456,95 +456,7 @@ a{
   color: white;
 }
   
-  /* 
-  ------------------------------------MAP------------------------------------------------------------- */
-/* 
-------------------------------------MAPS-HTML------------------------------------------------------------- */
-#hero-section-maps {
-  background: linear-gradient(
-    to bottom,
-    #10002b,
-    #240046,
-    #3c096c,
-    #5a189a,
-    #7b2cbf,
-    #9d4edd,
-    #c77dff,
-    #e0aaff,
-    #ffffff
-  );
-  max-height: 100vh;
-  width: 100%;
-  color: white;
-  z-index: 0;
-}
-
-.map-container{
-  height: 90vh;
-  display: flex;
-  padding: 20px 150px;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-#map {
-  height: 60vh;
-  width: 30vw;
-  margin-top: 20px;
-  border-radius: 5px;
-}
-.controls {
-  margin: 20px 0;
-}
-.map-container input {
-  padding: 8px;
-  margin-right: 10px;
-  width: 300px;
-}
-.map-container button {
-  padding: 8px 16px;
-}
-
-.left-message-maps{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 40vw;
-  justify-content: center;
-  align-items: center;
-
-}
-
-#msg-maps p{
-  font-size: 50px;
-}
-
-.controls{
-  display: flex;
-
-}
-
-.controls input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  font-family: Poppins;
-}
-
-.controls button {
-  font-family: Poppins;
-  background-color: #5a189a;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  margin-left: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.controls button:hover {
-  background-color: #3c096c;
-}
+  
   /* -------------------------------ANIMAÇÃO--------------------- */
   .hidden {
     opacity: 0;
@@ -575,76 +487,3 @@ a{
     filter: blur(0);
     transform: translateX(0);
   }
-
-/*--------------------------ESTILOS DO LOGIN---------------------------*/
-
-#body-login{
-  background-color: #272727;
-  justify-content: center;
-}
-
-.login{
-    width: 500px;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-}
-
-.login h1 {
-  display: flex;
-  justify-content: center;
-  font-size: 32px;
-  margin-bottom: 30px;
-}
-
-.login-group {
-    margin-bottom: 15px;
-}
-.login-group label{
-    margin-bottom: 5px;
-    display: block;
-    font-size: 18px;
-}
-.login-group input{
-    margin: 0;
-    height: 40px;
-    width: 100%;
-}
-
-.esqueceu-senha a{
-    display: flex;
-    justify-content: end;
-    margin-bottom: 5px;
-    color: #000;
-    text-decoration: underline;
-}
-
-.botao-login{
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 0 0;
-}
-.botao-login button{
-  border-radius: 10px;
-  width: 80%;
-  padding: 15px;
-}
-
-.sem-conta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0;
-}
-
-.sem-conta a{
-  margin-left: 20px;
-  color: #000;
-  text-decoration: underline;
-  background-color: #b7b8ff;
-  border-radius: 5px;
-  padding: 7px;
-}

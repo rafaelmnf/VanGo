@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  
+  <link rel="stylesheet" href="/CSS/styles.css">
+    <script defer src="/JS/main.js"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>Crie Sua Conta</h1>
+    <form action="/register" method="POST">
+      <!-- Campos Nome e Sobrenome -->
+      <div class="input-group">
+        <div>
+          <label for="PrimeiroNome">Nome</label>
+          <input type="text" id="PrimeiroNome" name="PrimeiroNome" placeholder="Digite seu nome" required>
+        </div>
+        <div>
+          <label for="Sobrenome">Sobrenome</label>
+          <input type="text" id="Sobrenome" name="Sobrenome" placeholder="Digite seu sobrenome" required>
+        </div>
+      </div>
+
+      <!-- Campo Idade -->
+      <label for="Idade">Idade</label>
+      <input type="number" id="Idade" name="Idade" placeholder="Digite sua idade" required min="18" max="100">
+
+      <!-- Campos E-mail e Senha -->
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="Crie uma senha" required>
+
+      <input type="submit" value="Criar Conta">
+    </form>
+  </div>
+</body>
+</html>

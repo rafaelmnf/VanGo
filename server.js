@@ -29,6 +29,11 @@ app.get('/maps',  (req, res) => {
   res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
 });
 
+
+app.get('/cadastro',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro.html'));
+});
+
 // ENVIO DE EMAILS
 // Configurando o nodemailer para enviar e-mails
 const transporter = nodemailer.createTransport({

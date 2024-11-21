@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <html>
 
 <head>
@@ -20,48 +20,71 @@
 </head>
 
 <body>
-    <section id="hero-section-maps">
-
-        <header class="barra-de-cima">
-            <div class="logo">
-                <a  href="index.html"><img  src="/assets/img/van-icon.svg" class="logo-img"></a>
-                <div id="name">
-                    <p>VanGo</p>
-                </div>
-            </div>
-
+    <header id="barra-de-cima-maps">
+       <!--DIV PARA MOSTRAR LOGO-->
+       <div class="logo">
+        <img src="/assets/img/van-icon.svg">
+        <p><a href="/" class="logo-txt">VanGo</a></p>
+      </div>
+        
             <nav class="menu-topo">
                 <ul class="nav-topo-itens">
-                    <li><a href="#" class="btn">Seja um motorista</a></li>
-                    <li><a href="#" class="btn">Buscar Van</a></li>
-                    <li><a href="#sobre" class="btn">Sobre Nós</a></li>
-                    <li><a href="#" class="btn">Login</a></li>
-                    <li><a href="#" class="btn">Cadastre-se</a></li>
+                  <li><a href="#" class="btn-menu">Meus Contratos</a></li>
+                  <li><a href="#" class="btn-menu">Perfil<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a></li>
                 </ul>
             </nav>
-        </header>
-
-
+    </header>
+    <section id="hero-section-maps">
 
         <div class="map-container">
 
-            <div class="left-message-maps">
-                <div id="msg-maps">
-                    <p>Coloque suas rotas, veja preços e contrate planos que combinam com <b>você</b>.</p>
-                </div>
-                <div class="controls">
-                    <input type="text" id="origin" placeholder="Origem">
-                    <input type="text" id="destination" placeholder="Destino">
-                    <button onclick="calculateRoute()">Calcular Rota</button>
-                </div>
+            <div class="left-side-maps">
+                <p>Busque a melhor rota para seu dia a dia</p>
+                <form class="controls">
+                    <div class="rota">
+                        <input type="text" id="origin" placeholder="Digite a origem">
+                        <input type="text" id="destination" placeholder="Digite o destino">
+                        <button onclick="calculateRoute()">Calcular Rota</button>
+                    </div>
+                    
+                    <div class="data">
+                        <label for="day">Escolha um dia</label>
+                            <select id="day" name="day" required>
+                                <option value="hoje">Hoje, qua., 20 de nov.</option>
+                                <option value="amanha">Amanhã, qui., 21 de nov.</option>
+                                <option value="sexta">sex., 22 de nov.</option>
+                                <option value="sabado">sáb., 23 de nov.</option>
+                                <option value="domingo">dom., 24 de nov.</option>
+                                <option value="segunda">seg., 25 de nov.</option>
+                                <option value="terca">ter., 26 de nov.</option>
+                            </select>
+                            
+                        <label for="frequency">Frequência</label>
+                            <select id="frequency" name="frequency" required>
+                                <option value="uma-vez">Uma vez</option>
+                                <option value="diario">Diário</option>
+                                <option value="semanal">Semanal</option>
+                            </select>
+                            
+                        <label for="time">Horário</label>
+                            <select id="time" name="time" required>
+                                <option value="manha">Manhã</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noite">Noite</option>
+                            </select>
+                            <!--Se der adicionar um calendario interativo ao lado-->
+                    </div>
+                            <!--Ajustar botao p ficar max width, cansei-->
+                    <button type="submit">Confirmar</button>
+                </form>
             </div>
+            <div id="map">
 
-            <div id="map"></div>
+            </div>
         </div>
 
     </section>
-    <script src="/VanGo/Public/maps.js"></script>
-
+    <script src="/JS/maps.js"></script>
     <!-- API -->
     <script src=""
         async defer></script>

@@ -34,6 +34,10 @@ app.get('/cadastro',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro.html'));
 });
 
+app.get('/cadastro-usuario',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-usuario.html'));
+});
+
 // ENVIO DE EMAILS
 // Configurando o nodemailer para enviar e-mails
 const transporter = nodemailer.createTransport({

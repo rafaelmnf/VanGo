@@ -1,58 +1,115 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let map;
-    let directionsService;
-    let directionsRenderer;
-  
-    // Inicializa o mapa
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -23.55052, lng: -46.633308 }, // Posição inicial (São Paulo, por exemplo)
-        zoom: 14,
-      });
-  
-      directionsService = new google.maps.DirectionsService();
-      directionsRenderer = new google.maps.DirectionsRenderer();
-  
-      // Liga o renderizador ao mapa
-      directionsRenderer.setMap(map);
-    }
-    
-    // Calcula e exibe a rota
-    function calculateRoute() {
-      const origin = document.getElementById("origin").value;
-      const destination = document.getElementById("destination").value;
-        
-      // Verifica se os campos não estão vazios
-    if (origin && destination) {
-        fetch(`/calculate-route?origin=${origin}&destination=${destination}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data); // Aqui você pode tratar a resposta para exibir no mapa
-            })
-            .catch(error => console.error('Erro ao calcular rota:', error));
-        }
+let map;
+// initMap is now async
+async function initMap() {
+    // Request libraries when needed, not in the script tag.
+    const { Map } = await google.maps.importLibrary("maps");
+    // Short namespaces can be used.
+    map = new Map(document.getElementById("map"), {
+        center: { lat: -23.533773, lng: -46.625290 },
+        zoom: 10,
+    });
+}
 
-      const request = {
-        origin: origin,
-        destination: destination,
-        travelMode: google.maps.TravelMode.DRIVING, // Modo de transporte: DRIVING, WALKING, BICYCLING ou TRANSIT
-      };
-  
-      directionsService.route(request, (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsRenderer.setDirections(result); // Exibe a rota no mapa
-        } else {
-          alert("Não foi possível calcular a rota: " + status);
-        }
-      });
+initMap();
+
+
+/*let map;
+// initMap is now async
+async function initMap() {
+    // Request libraries when needed, not in the script tag.
+    const { Map } = await google.maps.importLibrary("maps");
+    // Short namespaces can be used.
+    map = new Map(document.getElementById("map"), {
+        mapTypeControl: false,
+        center: { lat: -23.533773, lng: -46.625290 },
+        zoom: 10,
+    });
+    new AutocompleteDirectionsHandler(map);
+}
+
+class AutocompleteDirectionsHandler {
+  map;
+  originPlaceId;
+  destinationPlaceId;
+  travelMode;
+  directionsService;
+  directionsRenderer;
+  constructor(map) {
+    this.map = map;
+    this.originPlaceId = "";
+    this.destinationPlaceId = "";
+    this.travelMode = google.maps.TravelMode.WALKING;
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.directionsRenderer.setMap(map);
+
+    const originInput = document.getElementById("origin");
+    const destinationInput = document.getElementById("destination");
+    // Specify just the place data fields that you need.
+    const originAutocomplete = new google.maps.places.Autocomplete(
+      originInput,
+      { fields: ["place_id"] },
+    );
+    // Specify just the place data fields that you need.
+    const destinationAutocomplete = new google.maps.places.Autocomplete(
+      destinationInput,
+      { fields: ["place_id"] },
+    );
+
+    this.setupPlaceChangedListener(originAutocomplete, "ORIG");
+    this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+      destinationInput,
+    );
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+  }
+  // Autocomplete.
+
+  setupPlaceChangedListener(autocomplete, mode) {
+    autocomplete.bindTo("bounds", this.map);
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+
+      if (mode === "ORIG") {
+        this.originPlaceId = place.place_id;
+      } else {
+        this.destinationPlaceId = place.place_id;
+      }
+
+      this.route();
+    });
+  }
+  route() {
+    if (!this.originPlaceId || !this.destinationPlaceId) {
+      return;
     }
-  
-    // Configura o evento de clique no botão
-    document.getElementById("calculate-route").addEventListener("click", calculateRoute);
-  
-    // Inicializa o mapa ao carregar a página
-    initMap();
-  });
+
+    const me = this;
+
+    this.directionsService.route(
+      {
+        origin: { placeId: this.originPlaceId },
+        destination: { placeId: this.destinationPlaceId },
+        travelMode: this.travelMode,
+      },
+      (response, status) => {
+        if (status === "OK") {
+          me.directionsRenderer.setDirections(response);
+        } else {
+          window.alert("Directions request failed due to " + status);
+        }
+      },
+    );
+  }
+}
+
+initMap();*/
 
 
 // MAPS -->GERAR HORÁRIOS

@@ -1,0 +1,133 @@
+/* ------------------------------------MAP------------------------------------------------------------- /* 
+------------------------------------MAPS-HTML------------------------------------------------------------- */
+#hero-section-maps{
+    background: linear-gradient(
+      to bottom,
+      #10002b,
+      #240046,
+      #3c096c,
+      #5a189a,
+      #7b2cbf,
+      #9d4edd
+    );
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  #barra-de-cima-maps{
+    display: flex;
+    align-items: center;
+    background-color: #2B2B2B;
+    width: 100%;
+    height: 10vh;
+    padding: 30px 150px;
+  }
+  .map-container{
+    height: 90vh;
+    display: flex;
+    padding: 50px 150px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .left-side-maps{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30vw;
+    height: auto;
+    background-color: #272727;
+    padding: 30px;
+  }
+  
+  .left-side-maps p{
+    font-size: 44px;
+    color: white;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  .controls input {
+    padding: 8px;
+    width: 100%;
+  }
+  .controls button {
+    padding: 8px 16px;
+  }
+  
+  .controls input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
+  }
+  
+  .controls button {
+    font-family: Poppins;
+    background-color: #5a189a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .controls button:hover {
+    background-color: #3c096c;
+  }
+  
+  .rota{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;;
+    width: 40%;
+  }
+  
+  .data label{
+    color: white;
+  }
+  
+  #divisor-data-calendario{
+    display: flex;
+    gap: 70px;
+    margin-bottom: 10px;
+  }
+  
+  #calendario {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .flatpickr-day.selected {
+    background-color: #6200ea !important; /* Cor de fundo */
+    color: #ffffff !important; /* Cor do texto */
+    border-color: #00000000 !important; /* Borda do dia selecionado */
+  }
+  
+  /* Reduz o tamanho geral do calendário */
+  .flatpickr-calendar {
+    transform: scale(0.9); /* Reduz para 80% do tamanho original */
+    transform-origin: top left; /* Define o ponto de origem da transformação */
+  }
+  
+  #map {
+    height: 70vh;
+    width: 40vw;
+  }

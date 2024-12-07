@@ -1,0 +1,88 @@
+/*--------------------------ESTILOS DO LOGIN---------------------------*/
+
+#body-login{
+  background: linear-gradient(
+    to bottom,
+    #10002b,
+    #240046,
+    #3c096c,
+    #5a189a,
+    #7b2cbf,
+    #9d4edd
+  );
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  justify-content: center;
+  }
+  
+  .login{
+      width: 500px;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .login h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .login-group {
+      margin-bottom: 15px;
+  }
+  .login-group label{
+      margin-bottom: 5px;
+      display: block;
+      font-size: 18px;
+  }
+  .login-group input{
+      margin: 0;
+      height: 40px;
+      width: 100%;
+  }
+  
+  .esqueceu-senha a{
+      display: flex;
+      justify-content: end;
+      margin-bottom: 5px;
+      color: #000;
+      text-decoration: underline;
+  }
+  
+  .botao-login{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 0;
+  }
+  .botao-login button{
+    border-radius: 10px;
+    width: 80%;
+    padding: 15px;
+  }
+  
+  .botao-login button:hover{
+    background-color: #c7c7c7;
+    cursor: pointer;
+  }
+
+  .sem-conta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+  }
+  
+  .sem-conta a{
+    margin-left: 20px;
+    color: #000;
+    text-decoration: underline;
+    background-color: #b7b8ff;
+    border-radius: 5px;
+    padding: 7px;
+  }

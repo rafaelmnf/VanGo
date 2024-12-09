@@ -36,18 +36,10 @@ app.get('/cadastro-motorista',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-motorista.html'));
 });
 
-
-app.get('/cadastro',  (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro.html'));
+app.get('/seja-motorista',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'seja-motorista.html'));
 });
 
-app.get('/cadastro-usuario',  (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-usuario.html'));
-});
-
-app.get('/cadastro-motorista',  (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-motorista.html'));
-});
 
 // ENVIO DE EMAILS
 // Configurando o nodemailer para enviar e-mails

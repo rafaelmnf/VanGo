@@ -3,6 +3,8 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const app = express();
+const servico = require('./Public/JS/services/usuarioservice');
+const servicoMotorista = require('./Public/JS/services/motoristaservice');
 require('dotenv').config();
 
 app.use(express.json());
@@ -117,9 +119,20 @@ app.post('/send-message', (req, res) => {
     return res.status(200).json({ message: 'Mensagem enviada com sucesso!' });
   });
 });
+
+app.post('/criar-usuario', async (req,res)=>{
+  const resultado = await servico.criarUsuario(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
   
 
+app.post('/criar-motorista', async (req,res)=>{
+  const resultado = await servicoMotorista.criarMotorista(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
+  
 //RODAR O SERVIDOR
 app.listen(3000, () => {
   console.log(`Servidor rodando em http://localhost:3000`);
 });
+

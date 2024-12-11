@@ -20,6 +20,11 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  
+
+     <!-- ------------------------------- -->
+
+     <script defer src="/JS/cadastro-usuario.js"></script>
+
 </head>
 
 <body>
@@ -47,34 +52,34 @@
           <h1>Bem-Vindo</h1>
           <p>Insira seus dados para começar sua jornada conosco!</p>
       
-          <div class="cadastro-form">
+          <div class="cadastro-form" id="usuario-form">
             <form class="form">
               <label class="label-input">
-                <i class="far fa-user icon-modify"></i>
-                <input type="text" placeholder="Nome" required>
+              <i class="far fa-user icon-modify"></i>
+              <input type="text" id="nome" placeholder="Nome" required>
               </label>
-      
+          
               <label class="label-input">
-                <i class="far fa-user icon-modify"></i>
-                <input type="text" placeholder="Sobrenome" required>
+              <i class="far fa-user icon-modify"></i>
+              <input type="text" id="sobrenome" placeholder="Sobrenome" required>
               </label>
 
               <label class="label-input">
-                <i class="fas fa-lock icon-modify"></i>
-                <input type="text" placeholder="CPF" required>
+              <i class="fas fa-lock icon-modify"></i>
+              <input type="text" id="cpf" placeholder="CPF" required>
               </label>
               
               <label class="label-input">
-                <i class="far fa-envelope icon-modify"></i>
-                <input type="email" placeholder="Email" required>
+              <i class="far fa-envelope icon-modify"></i>
+              <input type="email" id="email" placeholder="Email" required>
               </label>
               
               <label class="label-input">
-                <i class="fas fa-lock icon-modify"></i>
-                <input type="password" placeholder="Senha" required>
+              <i class="fas fa-lock icon-modify"></i>
+              <input type="password" id="senha" placeholder="Senha" required>
               </label>
-      
-              <button type="submit" class="btn btn-primary">Cadastrar</button>        
+          
+                <button type="submit" class="btn btn-primary" onclick="criarUsuario()">Cadastrar</button>        
             </form>
           </div>
         </div>

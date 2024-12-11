@@ -50,23 +50,12 @@
   .controls {
     margin-top: 20px;
   }
-  
-  .controls input {
-    padding: 8px;
-    width: 100%;
-  }
-  .controls button {
+
+  .left-side-maps button {
     padding: 8px 16px;
   }
   
-  .controls input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    font-family: Poppins;
-  }
-  
-  .controls button {
+  .left-side-maps button {
     font-family: Poppins;
     background-color: #5a189a;
     color: white;
@@ -77,7 +66,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .controls button:hover {
+  .left-side-maps button:hover {
     background-color: #3c096c;
   }
   
@@ -87,6 +76,18 @@
     gap: 20px;
     width: 100%;
     margin-bottom: 40px;
+  }
+
+  .rota input {
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .rota input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
   }
   
   .data{

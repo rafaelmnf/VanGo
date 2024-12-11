@@ -38,12 +38,12 @@ app.get('/cadastro-motorista',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-motorista.html'));
 });
 
-app.get('/perfil-usuario',  (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'perfil-usuario.html'));
+app.get('/perfil',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'perfil.html'));
 });
 
-app.get('/perfil-motorista',  (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'perfil-motorista.html'));
+app.get('/contratos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'contratos.html'));
 });
 
 app.get('/resultados',  (req, res) => {

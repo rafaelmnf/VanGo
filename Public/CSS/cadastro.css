@@ -10,8 +10,7 @@
   text-align: center;
   margin: 0 auto;
   background-color: #0000004c;
-  width: 80%;
-  height: 50%;
+  padding: 5%;
   border-radius: 20px;
 }
 
@@ -22,7 +21,7 @@
 
 .opcoes-cadastro {
   display: flex;
-  gap: 60px;
+  gap: 2vw;
 }
 
 .card-cadastro-container {
@@ -33,4 +32,9 @@
   height: 100%;
   height: 100vh;
   position: relative;
+}
+
+.card-animated-border{
+  height: auto;
+  width: 16.5vw;
 }

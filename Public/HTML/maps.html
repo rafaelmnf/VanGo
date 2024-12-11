@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Trajeto - Uber</title>
+    <title>Trajeto VanGo</title>
 
     <!-- FONT Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,23 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <!-- Incluindo a API do Google Maps com sua chave de API -->
-    <script>
-        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-          key: "AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ",
-          v: "weekly",
-          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-          // Add other bootstrap parameters as needed, using camel case.
-        });
-      </script>
-    <!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ&loading=async&libraries=places"></script> -->
-    <script>
-        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-          key: "AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ",
-          v: "weekly",
-          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-          // Add other bootstrap parameters as needed, using camel case.
-        });
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ&loading=async&libraries=places"></script>
     <script defer src="/JS/maps.js"></script>
 </head>
 
@@ -60,12 +43,12 @@
 
             <div class="left-side-maps">
                 <p>Busque a melhor rota para seu dia a dia</p>
+                <div class="rota">
+                    <input type="text" id="origin" placeholder="Digite a origem">
+                    <input type="text" id="destination" placeholder="Digite o destino">
+                    <button id="route-btn">Calcular Rota</button>
+                </div>
                 <form class="controls">
-                    <div class="rota">
-                        <input type="text" id="origin" placeholder="Digite a origem">
-                        <input type="text" id="destination" placeholder="Digite o destino">
-                    </div>
-                    
                     <div id="divisor-data-calendario">
                         <div class="data">
                             <label for="dia">Escolha um dia:</label>
@@ -85,23 +68,46 @@
                                     <option value="toda-semana">Toda semana</option>
                                 </select>
                                 
-                            <label for="hora">Horário de Ida:</label>
+                            <label for="ida-select">Horário de Ida:</label>
                                 <select id="ida-select" required></select>
-                            <label for="volta-select">Horário de volta:</label>
-                                <select id="volta-select"></select>
+                                <script>
+                                    const idaSelect = document.getElementById('ida-select');
+                                    for (let h = 0; h < 24; h++) {
+                                        for (let m = 0; m < 60; m += 30) {
+                                            const hora = h.toString().padStart(2, '0');
+                                            const minuto = m.toString().padStart(2, '0');
+                                            const option = document.createElement('option');
+                                            option.value = `${hora}:${minuto}`;
+                                            option.textContent = `${hora}:${minuto}`;
+                                            idaSelect.appendChild(option);
+                                        }
+                                    }
+                                </script>
+                            <label for="volta-select" >Horário de volta:</label>
+                                <select id="volta-select" required></select>
+                                <script>
+                                    const voltaSelect = document.getElementById('volta-select');
+                                    for (let h = 0; h < 24; h++) {
+                                        for (let m = 0; m < 60; m += 30) {
+                                            const hora = h.toString().padStart(2, '0');
+                                            const minuto = m.toString().padStart(2, '0');
+                                            const option = document.createElement('option');
+                                            option.value = `${hora}:${minuto}`;
+                                            option.textContent = `${hora}:${minuto}`;
+                                            voltaSelect.appendChild(option);
+                                        }
+                                    }
+                                </script>
                         </div>
                         <div class="calendario"> 
                             <!--calendario interativo ao lado-->
                             <div id="calendario" class="flatpickr-calendar"></div>
                         </div>
                     </div>
-
-                    <button type="submit">Pesquisar</button>
                 </form>
+                <button type="submit" id="ProcurarVan">Procurar</button>
             </div>
-            <div id="map">
-
-            </div>
+            <div id="map"></div>
         </div>
     </section>
 </body>

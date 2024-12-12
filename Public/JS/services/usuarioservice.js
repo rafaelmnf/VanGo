@@ -18,34 +18,20 @@ async function criarUsuario(usuarioDto)
         }
 }
 
-async function buscarUsuarioPorId(id)
-{
-    try{
-        const resultado = await pool.query(
-            `SELECT * FROM usuario WHERE id = $1`,
-            [id]
-        )
+async function buscarUsuarioPorId(id) {
+    try {
+      const resultado = await pool.query(
+        `SELECT nome, sobrenome, email, cpf FROM usuario WHERE id = $1`,
+        [id]
+      );
 
-        if(resultado.rows.length === 0)
-            return null
-
-        const usuarioData = resultado.rows[0];
-        const usuario = new Usuario(
-            usuarioData.id,
-            usuarioData.nome,
-            usuarioData.sobrenome,
-            usuarioData.email,
-            usuarioData.cpf
-        );
-        return usuario;
+      return resultado.rows.length > 0 ? resultado.rows[0] : null;
+    } catch (error) {
+      console.error('Erro ao buscar usuário:', error);
+      throw error;
     }
-    catch(error)
-    {
-        console.log('Errou ao buscar usuario');
-        throw error
-    }
-}
-
+  }
+  
 async function loginUsuario(email, senha)
 {
     try{

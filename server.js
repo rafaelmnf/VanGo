@@ -50,6 +50,22 @@ app.get('/resultados',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'resultados-maps.html'));
 });
 
+app.get("/buscar-por-id/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const resultado = await servico.buscarUsuarioPorId(id);
+
+    if (resultado) {
+      res.json(resultado);
+    } else {
+      res.status(404).json({ mensagem: "Usuário não encontrado" });
+    }
+  } catch (error) {
+    console.error('Erro ao buscar usuário:', error);
+    res.status(500).json({ mensagem: "Erro interno do servidor" });
+  }
+});
+
 // ENVIO DE EMAILS
 // Configurando o nodemailer para enviar e-mails
 const transporter = nodemailer.createTransport({

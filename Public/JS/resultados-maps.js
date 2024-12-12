@@ -1,4 +1,4 @@
-function irMaps() {
+function irPerfil() {
     // Captura o caminho atual da URL
     const pathname = window.location.pathname;
 
@@ -9,9 +9,11 @@ function irMaps() {
     const id = segments[segments.length - 1];
 
     if (id) {
-        const path = document.getElementById("maps");
-        path.href = `/maps/${id}`; // Correção: use atribuição (=) em vez de chamada de método
+        const path = document.getElementById("perfil");
+        path.href = `/perfil/${id}`; // Correção: use atribuição (=) em vez de chamada de método
     } else {
         console.log("ID não encontrado na URL");
     }
 }
+
+

@@ -29,7 +29,12 @@ async function criarUsuario(user) {
 
         const data = await response.json();
         console.log("Resposta do servidor:", data);
-        alert(`Usuario: ${user.nome} criado com sucesso`)
+
+        // Correção: use window.location.href = "/login"
+        // Não é uma função, mas uma atribuição
+        if (response.ok) {
+            window.location.href = "/login";
+        }
     } catch (error) {
         console.error("Erro ao criar usuário:", error);
     }

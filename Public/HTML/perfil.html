@@ -24,6 +24,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <script src="/JS/perfil.js"></script>
+
   </head>
 
   <body>
@@ -41,8 +44,7 @@
         <nav class="menu-topo">
           <ul class="nav-topo-itens">
             <li><a href="/contratos" class="btn-menu">Meus Contratos</a></li>
-            <li><a href="/maps" class="btn-menu">Agendar Van</a></li>
-            <li><a href="/" class="btn-menu">Início</a></li>
+            <li><a onclick="irMaps()" id="maps" class="btn-menu">Agendar Van</a></li>
           </ul>
         </nav>
       </header>
@@ -50,8 +52,8 @@
       <div class="perfil-container">
         <div class="name-container">
           <div class="name">
-            <div class="name"><h1>Nome</h1></div>
-            <div class="sobrenome"><h1>Sobrenome</h1></div>
+            <div class="name"><h1 id="nome"></h1></div>
+            <div class="sobrenome"><h1 id="sobrenome"></h1></div>
           </div>
 
           <div class="foto-de-perfil">
@@ -80,10 +82,10 @@
 
         <div class="info-container">
           <p><b>Email</b></p>
-          <p>teste@gmail.com</p>
+          <p id="email"></p>
           <div class="divisoria"></div>
           <p><b>CPF</b></p>
-          <p>123456789</p>
+          <p  id="cpf"></p>
           <div class="divisoria"></div>
           <p><b>Telefone</b></p>
           <p>(11) 99999-9999</p>

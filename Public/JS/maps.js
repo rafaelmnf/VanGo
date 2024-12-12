@@ -1,5 +1,3 @@
-const urlParams = new URLSearchParams(window.location.search);
-
 //Google Maps
 let map, directionsService, directionsRenderer;
 
@@ -386,16 +384,22 @@ botaoProcurarVan.addEventListener("click", function() {
 
 //   ----------------------------------------------------------login
 
-document.addEventListener("DOMContentLoaded", function() {
-  const id = document.getElementById("perfil");
-  const url = urlParams.get(`${id}`);
-  if (id) {
-    id.href = `/perfil/${url}`;
-  }
+function irPerfil() {
+    // Captura o caminho atual da URL
+    const pathname = window.location.pathname;
 
-  function irPerfil() {
-    //   window.location.href = `/perfil/${url}`;
-    console.log(url);
-  }
-});
+    // Divide o caminho em segmentos
+    const segments = pathname.split('/');
+
+    // Pega o último segmento, que deve ser o ID
+    const id = segments[segments.length - 1];
+
+    if (id) {
+        const path = document.getElementById("perfil");
+        path.href = `/perfil/${id}`; // Correção: use atribuição (=) em vez de chamada de método
+    } else {
+        console.log("ID não encontrado na URL");
+    }
+}
+
 

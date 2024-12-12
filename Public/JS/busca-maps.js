@@ -78,7 +78,7 @@ function exibirInformacoes() {
                                   <p class="dados-perfil"><u>Valor</u>: ${contrato.preco}</p>
                               </div>
                           </div>
-                          <button class="btn-resultados">Solicitar</button>
+                          <button class="js-add-contrato btn-resultados" data-id="${contrato.id}">Adicionar</button>
                       </div>
   `;
   }

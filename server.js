@@ -22,7 +22,7 @@ app.get('/login',  (req, res) => {
   });
 
 //ROTA PARA MOSTRAR MAPS
-app.get('/maps',  (req, res) => {
+app.get('/maps/:id',  (req, res) => {
   res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
 });
 
@@ -38,7 +38,7 @@ app.get('/cadastro-motorista',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-motorista.html'));
 });
 
-app.get('/perfil',  (req, res) => {
+app.get('/perfil/:id',  (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'HTML', 'perfil.html'));
 });
 
@@ -132,6 +132,12 @@ app.post('/criar-motorista', async (req,res)=>{
   const resultado = await servicoMotorista.criarMotorista(req.body);
   res.status(resultado.sucess ? 201: 400).json(resultado)
 });
+
+app.post("/verificar-login", async(req, res)=>{
+  const {email, senha} = req.body;
+  const resultado = await servico.loginUsuario(email, senha);
+  res.json(resultado)
+})
   
 //RODAR O SERVIDOR
 app.listen(3000, () => {

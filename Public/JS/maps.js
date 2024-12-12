@@ -1,3 +1,5 @@
+const urlParams = new URLSearchParams(window.location.search);
+
 //Google Maps
 let map, directionsService, directionsRenderer;
 
@@ -381,3 +383,19 @@ botaoProcurarVan.addEventListener("click", function() {
     diaSelect.addEventListener("change", atualizarCalendario);
     frequenciaSelect.addEventListener("change", atualizarCalendario);
   });
+
+//   ----------------------------------------------------------login
+
+document.addEventListener("DOMContentLoaded", function() {
+  const id = document.getElementById("perfil");
+  const url = urlParams.get(`${id}`);
+  if (id) {
+    id.href = `/perfil/${url}`;
+  }
+
+  function irPerfil() {
+    //   window.location.href = `/perfil/${url}`;
+    console.log(url);
+  }
+});
+

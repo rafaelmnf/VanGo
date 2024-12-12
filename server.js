@@ -3,33 +3,12 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const app = express();
+const servico = require('./Public/JS/services/usuarioservice');
+const servicoMotorista = require('./Public/JS/services/motoristaservice');
 require('dotenv').config();
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'Public'))); // deixar com css
-
-//MAPS
-const API_MAPS = process.env.API_MAPS; // Recupera a chave do ambiente
-// Endpoint para calcular a rota
-app.get('/calculate-route', async (req, res) => {
-    const { origin, destination } = req.query;
-
-    if (!origin || !destination) {
-        return res.status(400).send("Por favor, insira origem e destino.");
-    }
-
-    // URL da API Google Maps
-    const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${API_MAPS}`;
-
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        res.json(data); // Retorna a resposta da API ao frontend
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error calculating route');
-    }
-});
 
 
 //ROTA PARA MOSTRAR TELA INICIAL
@@ -42,14 +21,49 @@ app.get('/login',  (req, res) => {
     res.sendFile(path.join(__dirname,'Public', 'HTML', 'login.html'));
   });
 
-//ROTA PARA MOSTRAR REQUISIÇÃO DE LOGIN
-app.get('/request-login',  (req, res) => {
-  res.sendFile(path.join(__dirname,'Public', 'HTML', 'request-login.html'));
+//ROTA PARA MOSTRAR MAPS
+app.get('/maps/:id',  (req, res) => {
+  res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
 });
 
-//ROTA PARA MOSTRAR LOGIN
-app.get('/maps',  (req, res) => {
-  res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
+app.get('/cadastro',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro.html'));
+});
+
+app.get('/cadastro-usuario',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-usuario.html'));
+});
+
+app.get('/cadastro-motorista',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'cadastro-motorista.html'));
+});
+
+app.get('/perfil/:id',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'perfil.html'));
+});
+
+app.get('/contratos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'contratos.html'));
+});
+
+app.get('/resultados',  (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'HTML', 'resultados-maps.html'));
+});
+
+app.get("/buscar-por-id/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const resultado = await servico.buscarUsuarioPorId(id);
+
+    if (resultado) {
+      res.json(resultado);
+    } else {
+      res.status(404).json({ mensagem: "Usuário não encontrado" });
+    }
+  } catch (error) {
+    console.error('Erro ao buscar usuário:', error);
+    res.status(500).json({ mensagem: "Erro interno do servidor" });
+  }
 });
 
 // ENVIO DE EMAILS
@@ -124,8 +138,25 @@ app.post('/send-message', (req, res) => {
   });
 });
 
+app.post('/criar-usuario', async (req,res)=>{
+  const resultado = await servico.criarUsuario(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
+  
 
+app.post('/criar-motorista', async (req,res)=>{
+  const resultado = await servicoMotorista.criarMotorista(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
+
+app.post("/verificar-login", async(req, res)=>{
+  const {email, senha} = req.body;
+  const resultado = await servico.loginUsuario(email, senha);
+  res.json(resultado)
+})
+  
 //RODAR O SERVIDOR
 app.listen(3000, () => {
   console.log(`Servidor rodando em http://localhost:3000`);
 });
+

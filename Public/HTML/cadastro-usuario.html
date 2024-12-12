@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cadastro</title>
+
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="/CSS/cadastro-usuario.css">
+
+     <!-- FONT Figtree -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+     
+     <!-- FONT Poppins -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+
+     <!-- ------------------------------- -->
+
+     <script defer src="/JS/cadastro-usuario.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Seção principal -->
+<div class="hero-section">
+    <header class="barra-de-cima">
+        <!--DIV PARA MOSTRAR LOGO-->
+        <div class="logo">
+          <a href="/"> 
+            <img src="/assets/img/van-icon.svg">
+          </a> 
+          <p><a href="/" class="logo-txt">VanGo</a></p>
+        </div>
+
+        <nav class="menu-topo">
+          <ul class="nav-topo-itens">
+            <li><a href="/login" class="btn-menu">Já tenho uma conta?</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <div class="card-cadastro-container">
+        <div class="cadastro-container">
+          <h1>Bem-Vindo</h1>
+          <p>Insira seus dados para começar sua jornada conosco!</p>
+      
+          <div class="cadastro-form" id="usuario-form">
+            <form class="form">
+              <label class="label-input">
+              <i class="far fa-user icon-modify"></i>
+              <input type="text" id="nome" placeholder="Nome" required>
+              </label>
+          
+              <label class="label-input">
+              <i class="far fa-user icon-modify"></i>
+              <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+              </label>
+
+              <label class="label-input">
+              <i class="fas fa-lock icon-modify"></i>
+              <input type="text" id="cpf" placeholder="CPF" required>
+              </label>
+              
+              <label class="label-input">
+              <i class="far fa-envelope icon-modify"></i>
+              <input type="email" id="email" placeholder="Email" required>
+              </label>
+              
+              <label class="label-input">
+              <i class="fas fa-lock icon-modify"></i>
+              <input type="password" id="senha" placeholder="Senha" required>
+              </label>
+          
+                <button type="submit" class="btn btn-primary">Cadastrar</button>        
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+  </div>
+  
+</body>
+
+</html>

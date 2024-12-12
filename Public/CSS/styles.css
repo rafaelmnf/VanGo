@@ -18,7 +18,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   body {
     font-family: Poppins;
     min-height: 100vh;
-    width: 100%;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@ a{
       to bottom,
       #10002b,
       #240046,
-      #3c096c,
+      #3c096c,  
       #5a189a,
       #7b2cbf,
       #9d4edd,
@@ -87,6 +87,7 @@ a{
     align-items: center;
     padding: 30px 150px;
     height: 10vh;
+    width: 100%;
   }
   
   .logo {
@@ -231,26 +232,27 @@ a{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100vw;
     position: relative;
   }
   
   .msg1{
     height: 400px;
     width: 600px;
-    top: 20px;
-    right: 150px;
+    right: 0%;
     position: absolute;
   }
   
   .msg1 p, .msg2 p{
-    font-size: 40px;
+    color: white;
+    font-size: 35px;
   }
   
   .msg2{
     height: 400px;
     width: 800px;
-    top: 320px;
-    left: 150px;
+    top: 30%;
+    left: 5%;
     position: absolute;
   }
   
@@ -366,7 +368,7 @@ a{
   text-align: center;
   height: 300px;
   width: 550px;
-  margin: 100px;
+  margin: 50px;
 }
 
 #sobre-message1, #sobre-message2{
@@ -470,141 +472,6 @@ a{
   color: white;
 }
 
-  /* 
-  ------------------------------------MAP------------------------------------------------------------- */
-/* 
-------------------------------------MAPS-HTML------------------------------------------------------------- */
-#hero-section-maps{
-  background: linear-gradient(
-    to bottom,
-    #10002b,
-    #240046,
-    #3c096c,
-    #5a189a,
-    #7b2cbf,
-    #9d4edd
-  );
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-#barra-de-cima-maps{
-  display: flex;
-  align-items: center;
-  background-color: #2B2B2B;
-  width: 100%;
-  height: 10vh;
-  padding: 30px 150px;
-}
-.map-container{
-  height: 90vh;
-  display: flex;
-  padding: 50px 150px;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.left-side-maps{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 30vw;
-  height: auto;
-  background-color: #272727;
-  padding: 30px;
-}
-
-.left-side-maps p{
-  font-size: 44px;
-  color: white;
-}
-
-.controls {
-  margin-top: 20px;
-}
-
-.controls input {
-  padding: 8px;
-  width: 100%;
-}
-.controls button {
-  padding: 8px 16px;
-}
-
-.controls input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  font-family: Poppins;
-}
-
-.controls button {
-  font-family: Poppins;
-  background-color: #5a189a;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.controls button:hover {
-  background-color: #3c096c;
-}
-
-.rota{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-.data{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;;
-  width: 40%;
-}
-
-.data label{
-  color: white;
-}
-
-#divisor-data-calendario{
-  display: flex;
-  gap: 70px;
-}
-
-#calendario {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.flatpickr-day.selected {
-  background-color: #6200ea !important; /* Cor de fundo */
-  color: #ffffff !important; /* Cor do texto */
-  border-color: #00000000 !important; /* Borda do dia selecionado */
-}
-
-/* Reduz o tamanho geral do calendário */
-.flatpickr-calendar {
-  transform: scale(0.9); /* Reduz para 80% do tamanho original */
-  transform-origin: top left; /* Define o ponto de origem da transformação */
-}
-
-#map {
-  height: 70vh;
-  width: 40vw;
-}
-
   /* -------------------------------ANIMAÇÃO--------------------- */
   .hidden {
     opacity: 0;
@@ -635,76 +502,4 @@ a{
     filter: blur(0);
     transform: translateX(0);
   }
-
-/*--------------------------ESTILOS DO LOGIN---------------------------*/
-
-#body-login{
-  background-color: #272727;
-  justify-content: center;
-}
-
-.login{
-    width: 500px;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-}
-
-.login h1 {
-  display: flex;
-  justify-content: center;
-  font-size: 32px;
-  margin-bottom: 30px;
-}
-
-.login-group {
-    margin-bottom: 15px;
-}
-.login-group label{
-    margin-bottom: 5px;
-    display: block;
-    font-size: 18px;
-}
-.login-group input{
-    margin: 0;
-    height: 40px;
-    width: 100%;
-}
-
-.esqueceu-senha a{
-    display: flex;
-    justify-content: end;
-    margin-bottom: 5px;
-    color: #000;
-    text-decoration: underline;
-}
-
-.botao-login{
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 0 0;
-}
-.botao-login button{
-  border-radius: 10px;
-  width: 80%;
-  padding: 15px;
-}
-
-.sem-conta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0;
-}
-
-.sem-conta a{
-  margin-left: 20px;
-  color: #000;
-  text-decoration: underline;
-  background-color: #b7b8ff;
-  border-radius: 5px;
-  padding: 7px;
-}
+  

@@ -1,89 +1,316 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let map;
-    let directionsService;
-    let directionsRenderer;
-  
-    // Inicializa o mapa
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -23.55052, lng: -46.633308 }, // Posição inicial (São Paulo, por exemplo)
-        zoom: 14,
-      });
-  
-      directionsService = new google.maps.DirectionsService();
-      directionsRenderer = new google.maps.DirectionsRenderer();
-  
-      // Liga o renderizador ao mapa
-      directionsRenderer.setMap(map);
-    }
-    
-    // Calcula e exibe a rota
-    function calculateRoute() {
-      const origin = document.getElementById("origin").value;
-      const destination = document.getElementById("destination").value;
-        
-      // Verifica se os campos não estão vazios
-    if (origin && destination) {
-        fetch(`/calculate-route?origin=${origin}&destination=${destination}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data); // Aqui você pode tratar a resposta para exibir no mapa
-            })
-            .catch(error => console.error('Erro ao calcular rota:', error));
-        }
+//Google Maps
+let map, directionsService, directionsRenderer;
 
-      const request = {
-        origin: origin,
-        destination: destination,
-        travelMode: google.maps.TravelMode.DRIVING, // Modo de transporte: DRIVING, WALKING, BICYCLING ou TRANSIT
-      };
-  
-      directionsService.route(request, (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsRenderer.setDirections(result); // Exibe a rota no mapa
-        } else {
-          alert("Não foi possível calcular a rota: " + status);
-        }
-      });
-    }
-  
-    // Configura o evento de clique no botão
-    document.getElementById("calculate-route").addEventListener("click", calculateRoute);
-  
-    // Inicializa o mapa ao carregar a página
-    initMap();
+function initMap() {
+  // Inicializa o mapa
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -23.533773, lng: -46.625290 }, //localização de sp
+    zoom: 11,
+    mapTypeControl: false, //tipo de mapa marcado somente para roadmap. Outras opções: satellite, hybrid, terrain
+    mapTypeId: "roadmap",
+    //estilo mais clean, parecido com o da uber
+    styles: [
+      {
+          "featureType": "all",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "color": "#7c93a3"
+              },
+              {
+                  "lightness": "-10"
+              }
+          ]
+      },
+      {
+          "featureType": "administrative.country",
+          "elementType": "geometry",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "administrative.country",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "color": "#a0a4a5"
+              }
+          ]
+      },
+      {
+          "featureType": "administrative.province",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "color": "#62838e"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#dde3e3"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape.man_made",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "color": "#3f4a51"
+              },
+              {
+                  "weight": "0.30"
+              }
+          ]
+      },
+      {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.attraction",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.business",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.government",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.park",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.place_of_worship",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.school",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "poi.sports_complex",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "saturation": "-100"
+              },
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#bbcacf"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "lightness": "0"
+              },
+              {
+                  "color": "#bbcacf"
+              },
+              {
+                  "weight": "0.50"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "labels",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "labels.text",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "color": "#a9b4b8"
+              }
+          ]
+      },
+      {
+          "featureType": "road.arterial",
+          "elementType": "labels.icon",
+          "stylers": [
+              {
+                  "invert_lightness": true
+              },
+              {
+                  "saturation": "-7"
+              },
+              {
+                  "lightness": "3"
+              },
+              {
+                  "gamma": "1.80"
+              },
+              {
+                  "weight": "0.01"
+              }
+          ]
+      },
+      {
+          "featureType": "transit",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#a3c7df"
+              }
+          ]
+      }
+  ]
   });
 
+  // Instancia o serviço de rotas e o renderizador
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
 
-// MAPS -->GERAR HORÁRIOS
-// Função para gerar horários dinâmicos
-function generateTimeOptions(selectId, includeOptional = false) {
-    const select = document.getElementById(selectId);
-  
-    // Adicionar a opção inicial "Opcional" para horários de volta, se necessário
-    if (includeOptional) {
-      const optionalOption = document.createElement('option');
-      optionalOption.value = "";
-      optionalOption.textContent = "Sem volta";
-      select.appendChild(optionalOption);
-    }
-  
-    // Gerar horários de meia em meia hora
-    for (let hour = 0; hour < 24; hour++) {
-      for (let minute = 0; minute < 60; minute += 30) {
-        const time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
-        const option = document.createElement('option');
-        option.value = time;
-        option.textContent = time;
-        select.appendChild(option);
-      }
-    }
+  // Conecta o renderizador ao mapa
+  directionsRenderer.setMap(map);
+
+  // Configura Autocomplete para os inputs
+  const originInput = document.getElementById("origem");
+  const destinationInput = document.getElementById("destino");
+
+  const autocompleteOrigin = new google.maps.places.Autocomplete(originInput);
+  const autocompleteDestination = new google.maps.places.Autocomplete(destinationInput);
+
+  // Adiciona evento ao botão
+  document.getElementById("route-btn").addEventListener("click", calculateRoute);
+}
+
+function calculateRoute() {
+  const origin = document.getElementById("origem").value;
+  const destination = document.getElementById("destino").value;
+
+  if (!origin || !destination) {
+    alert("Por favor, preencha os campos de origem e destino.");
+    return;
   }
-  
-  // Gerar horários para os dois menus
-  generateTimeOptions('ida-select'); // Horários de ida (obrigatório)
-  generateTimeOptions('volta-select', true); // Horários de volta (opcional)
 
+  // Configura a solicitação de rota
+  const request = {
+    origin: origin,
+    destination: destination,
+    travelMode: google.maps.TravelMode.DRIVING, // Modos: DRIVING, WALKING, BICYCLING, TRANSIT
+  };
+
+  // Calcula e exibe a rota
+  directionsService.route(request, (result, status) => {
+    if (status === google.maps.DirectionsStatus.OK) {
+      directionsRenderer.setDirections(result);
+    } else {
+      alert("Não foi possível calcular a rota: " + status);
+    }
+  });
+}
+
+// Carrega o mapa quando o script for carregado
+window.onload = initMap;
 
   // Calendario e manipulação de data
   document.addEventListener("DOMContentLoaded", function () {
@@ -149,3 +376,25 @@ function generateTimeOptions(selectId, includeOptional = false) {
     diaSelect.addEventListener("change", atualizarCalendario);
     frequenciaSelect.addEventListener("change", atualizarCalendario);
   });
+
+//   ----------------------------------------------------------login
+
+function irPerfil() {
+    // Captura o caminho atual da URL
+    const pathname = window.location.pathname;
+
+    // Divide o caminho em segmentos
+    const segments = pathname.split('/');
+
+    // Pega o último segmento, que deve ser o ID
+    const id = segments[segments.length - 1];
+
+    if (id) {
+        const path = document.getElementById("perfil");
+        path.href = `/perfil/${id}`; // Correção: use atribuição (=) em vez de chamada de método
+    } else {
+        console.log("ID não encontrado na URL");
+    }
+}
+
+

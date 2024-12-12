@@ -1,0 +1,256 @@
+/* 
+  ------------------------------------MAP------------------------------------------------------------- */
+/* 
+------------------------------------MAPS-HTML------------------------------------------------------------- */
+#hero-section-maps {
+    background: linear-gradient(
+      to bottom,
+      #10002b,
+      #240046,
+      #3c096c,
+      #5a189a,
+      #7b2cbf,
+      #9d4edd,
+      #c77dff,
+      #e0aaff,
+      #ffffff
+    );
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    z-index: 0;
+  }
+  
+  .map-container{
+    height: 90vh;
+    display: flex;
+    padding: 20px 150px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  #map {
+    height: 60vh;
+    width: 30vw;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  .controls {
+    margin: 20px 0;
+  }
+  .map-container input {
+    padding: 8px;
+    margin-right: 10px;
+    width: 300px;
+  }
+  .map-container button {
+    padding: 8px 16px;
+  }
+  
+  .left-message-maps{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  #msg-maps p{
+    font-size: 50px;
+  }
+  
+  .controls{
+    display: flex;
+  
+  }
+  
+  .controls input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
+  }
+  
+  .controls button {
+    font-family: Poppins;
+    background-color: #5a189a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-left: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .controls button:hover {
+    background-color: #3c096c;
+  }
+/* ------------------------------------MAP------------------------------------------------------------- /* 
+------------------------------------MAPS-HTML------------------------------------------------------------- */
+#hero-section-maps{
+    background: linear-gradient(
+      to bottom,
+      #10002b,
+      #240046,
+      #3c096c,
+      #5a189a,
+      #7b2cbf,
+      #9d4edd
+    );
+    width: 100%;
+    height: 92vh;
+    z-index: 0;
+  }
+  
+  #barra-de-cima-maps{
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    width: 100%;
+    height: 8vh;
+    padding: 30px 150px;
+  }
+
+  .map-container{
+    height: 90vh;
+    display: flex;
+    justify-content: start;
+    padding: 30px 30px;
+    gap: 50px;
+    width: 100%;
+  }
+  /* ----------------------scroll bar--------------------- */
+  .left-side-maps::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .left-side-maps::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  .left-side-maps::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  /* ----------------------------------------------- */
+  .left-side-maps{
+    overflow: auto;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 40vw;
+    max-height: 80vh;
+    background-color: #333;
+    padding: 30px;
+  }
+  
+  .left-side-maps p{
+    margin-top: 10%;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .left-side-maps button{
+    height: auto;
+    font-size: 15px;
+    color: white;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .controls input {
+    padding: 8px;
+    width: 100%;
+  }
+
+
+  .left-side-maps button {
+    padding: 8px 16px;
+  }
+  
+  .left-side-maps button {
+    font-family: Poppins;
+    background-color: #5a189a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .left-side-maps button:hover {
+    background-color: #3c096c;
+  }
+  
+  .rota{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    height: 20%;
+  }
+
+
+
+  .rota input {
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .rota input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
+  }
+  
+  .data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;;
+    width: 40%;
+  }
+  
+  .data label{
+    color: white;
+  }
+  
+  #divisor-data-calendario{
+    display: flex;
+    gap: 70px;
+    margin-bottom: 10px;
+  }
+  
+  #calendario {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .flatpickr-day.selected {
+    background-color: #6200ea !important; /* Cor de fundo */
+    color: #ffffff !important; /* Cor do texto */
+    border-color: #00000000 !important; /* Borda do dia selecionado */
+  }
+  
+  /* Reduz o tamanho geral do calendário */
+  .flatpickr-calendar {
+    transform: scale(0.9); /* Reduz para 80% do tamanho original */
+    transform-origin: top left; /* Define o ponto de origem da transformação */
+  }
+  
+  #map {
+    height: 80vh;
+    width: 50vw;
+  }

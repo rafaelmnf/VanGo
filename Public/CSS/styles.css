@@ -87,6 +87,7 @@ a{
     align-items: center;
     padding: 30px 150px;
     height: 10vh;
+    width: 100%;
   }
   
   .logo {

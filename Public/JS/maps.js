@@ -273,8 +273,8 @@ function initMap() {
   directionsRenderer.setMap(map);
 
   // Configura Autocomplete para os inputs
-  const originInput = document.getElementById("origin");
-  const destinationInput = document.getElementById("destination");
+  const originInput = document.getElementById("origem");
+  const destinationInput = document.getElementById("destino");
 
   const autocompleteOrigin = new google.maps.places.Autocomplete(originInput);
   const autocompleteDestination = new google.maps.places.Autocomplete(destinationInput);
@@ -284,8 +284,8 @@ function initMap() {
 }
 
 function calculateRoute() {
-  const origin = document.getElementById("origin").value;
-  const destination = document.getElementById("destination").value;
+  const origin = document.getElementById("origem").value;
+  const destination = document.getElementById("destino").value;
 
   if (!origin || !destination) {
     alert("Por favor, preencha os campos de origem e destino.");

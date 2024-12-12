@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
 
-    <script defer src="/JS/contratos.js"></script>
+   
   </head>
 
   <body>
@@ -43,29 +43,28 @@
         <nav class="menu-topo">
           <ul class="nav-topo-itens">
             <li><a href="/contratos" class="btn-menu">Meus Contratos</a></li>
-            <li><a onclick="irMaps()" id="maps" class="btn-menu">Agendar Van</a></li>
+            <li>
+              <a onclick="irMaps()" id="maps" class="btn-menu">Agendar Van</a>
+            </li>
             <li><a href="/" class="btn-menu">Início</a></li>
           </ul>
         </nav>
       </header>
 
+    
       <div class="contratos-container">
-        <div class="card-container">
-          
-        <div class="card-contratos">
-          
-        </div>
-        <div class="card-contratos">
+  
+        <div class="card-container js-card-container-adicionados">
 
         </div>
-        <div class="card-contratos">
-
-        </div>
-        
-      </div>
       </div>
 
-
+   
+      
     </div>
+
+
+    <script src="../JS/data/contratos-data.js"></script>
+    <script src="../JS/contratos.js"></script>
   </body>
 </html>

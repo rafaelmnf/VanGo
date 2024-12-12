@@ -9,8 +9,8 @@
       #9d4edd,
       #c77dff
     );
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   /* ----------------------scroll bar--------------------- */
@@ -28,8 +28,7 @@
   /* ----------------------------------------------- */
 
 .contratos-container{
-    border: 5px solid black;
-    height: 100vh;
+height: 90vh;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -47,18 +46,60 @@ align-items: center;
     overflow: auto;
     padding: 1.5%;
 }
+
+.card-container h1{
+    color: white;
+    margin-bottom: 2%;
+}
   /* overflow auto deixa scrollavel */
 
-.card-contratos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40vh;
-    width: 67vw;
-    background-color: #ffff;
-    border-radius: 20px;
-    margin-bottom: 2.5%;
-    padding: 1%;
-    color: white;
+
+
+/* -------------------css card------------------- */
+.card-contratos {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  height: auto;
+  width: 67vw;
+  background-color: #ffff;
+  border-radius: 20px;
+  margin-bottom: 2.5%;
+  padding: 1%;
+  color:black
+  ;
+}
+
+#div-foto-info{
+  display: flex;
+  gap: 20px;
+}
+
+
+.foto-perfil img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.btn-resultados{
+  align-self: end;
+  background-color: #555;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-resultados:hover {
+  background-color: #777;
+}
+
+#motoristaIndisponivel{
+  margin-top: 100px;
+  font-size: 32px;
+  color: rgb(207, 207, 207);
 }

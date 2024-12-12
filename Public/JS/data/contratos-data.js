@@ -8,7 +8,31 @@ const contratos = [
         horarioIda: "08:00",
         horarioVolta: "18:00",
         van: "Fiat Ducato",
-        placa: "DEF-4567",
+        placa: "DEF-1212",
+        vaga: 5
+    },
+    {
+        id: "e410293e-6aa0-4b85-b27f-1cbhseb678c6",
+        nomeDoMotorista: "Juan Carlos",
+        preco: 2300,
+        destino: "Rua das Flores, Campinas, SP",
+        origem: "Avenida Brasil, São Paulo, SP",
+        horarioIda: "08:00",
+        horarioVolta: "18:00",
+        van: "Mitsubshi",
+        placa: "DEF-0000",
+        vaga: 5
+    },
+    {
+        id: "e1234ce-6aa0-cd85-b27f-e1d2390678c7",
+        nomeDoMotorista: "Rafael Alves",
+        preco: 4000,
+        destino: "Rua das Flores, Campinas, SP",
+        origem: "Avenida Brasil, São Paulo, SP",
+        horarioIda: "08:00",
+        horarioVolta: "18:00",
+        van: "Porsche",
+        placa: "312-4def",
         vaga: 5
     },
     {

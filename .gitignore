@@ -1,2 +1,4 @@
 .env
 /img and 3d/
+node_modules/
+JWT_SECRET = DVVbzQFOvdRcGFcbKSqthggefIDqGYdq

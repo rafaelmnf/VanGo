@@ -26,6 +26,7 @@
     <!-- Incluindo a API do Google Maps com sua chave de API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ&loading=async&libraries=places"></script>
     <script defer src="/JS/maps.js"></script>
+    <script defer src="/JS/busca-maps.js"></script>
   </head>
 
   <body>
@@ -73,12 +74,8 @@
         <div class="left-side-maps">
           <p>Busque a melhor rota para seu dia a dia</p>
           <div class="rota">
-            <input type="text" id="origin" placeholder="Digite a origem" />
-            <input
-              type="text"
-              id="destination"
-              placeholder="Digite o destino"
-            />
+            <input type="text" id="origem" placeholder="Digite a origem" />
+            <input type="text" id="destino" placeholder="Digite o destino" />
             <button id="route-btn">Calcular Rota</button>
           </div>
           <form id="busca-maps" class="controls">

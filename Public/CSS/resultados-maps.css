@@ -17,10 +17,24 @@
     }
 
 .container-hero-resultados{
-  background-color: #333;
+  background-color: #2c2c2c;
   height: 100%;
   padding: 0px 50px;
   width: 40vw;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.container-hero-resultados::-webkit-scrollbar {
+  width: 5px;
+}
+
+.container-hero-resultados::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+.container-hero-resultados::-webkit-scrollbar-thumb {
+  background: #6649b8;
 }
 
 #div-externa-bg{
@@ -49,6 +63,7 @@
   color: #272727;
   padding: 5px 0;
   border-radius: 0 0 0 15px;
+  font-size: 14px;
 }
 
 #centro-resultado{
@@ -58,6 +73,7 @@
   justify-content: center;
   color: #272727;
   padding: 5px 0;
+  font-size: 14px;
 }
 
 #direito-resultado{
@@ -68,11 +84,13 @@
   color: #272727;
   padding: 5px 0;
   border-radius: 0 0 15px 0;
+  font-size: 14px;
 }
 
-#perfils{
-  overflow: scroll;
-  height: 100%;
+#perfis-busca-maps{
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-perfil{
@@ -120,4 +138,10 @@
 
 .btn-resultados:hover {
   background-color: #777;
+}
+
+#motoristaIndisponivel{
+  margin-top: 100px;
+  font-size: 32px;
+  color: rgb(207, 207, 207);
 }

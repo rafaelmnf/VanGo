@@ -2,35 +2,39 @@
 /*-------------------ESTILOS DA PÁGINA DE CADASTRO---------------------*/
 
 .cadastro-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 0 auto;
-    background-color: #0000004c;
-    width: 80%;
-    height: 50%;
-    border-radius: 20px;
-  }
-  
-  .cadastro-container h1 {
-    font-size: 36px;
-    margin-bottom: 50px;
-  }
-  
-  .opcoes-cadastro {
-    display: flex;
-    gap: 60px;
-  }
-  
-  .card-cadastro-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    height: 100vh;
-    position: relative;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #0000004c;
+  padding: 5%;
+  border-radius: 20px;
+}
+
+.cadastro-container h1 {
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.opcoes-cadastro {
+  display: flex;
+  gap: 2vw;
+}
+
+.card-cadastro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.card-animated-border{
+  height: auto;
+  width: 16.5vw;
+}

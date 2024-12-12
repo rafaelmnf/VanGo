@@ -1,114 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trajeto VanGo</title>
 
     <!-- FONT Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="/CSS/styles.css">
-    <link rel="stylesheet" href="/CSS/maps.css">
+    <link rel="stylesheet" href="/CSS/styles.css" />
+    <link rel="stylesheet" href="/CSS/maps.css" />
 
     <!--Flatpickr = biblioteca para manipular o calendário-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <!-- Incluindo a API do Google Maps com sua chave de API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXzmIXui-wF_IEzg0JZpdDXUDrAwQvstQ&loading=async&libraries=places"></script>
     <script defer src="/JS/maps.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header id="barra-de-cima-maps">
-       <!--DIV PARA MOSTRAR LOGO-->
-       <div class="logo">
-        <img src="/assets/img/van-icon.svg">
+      <!--DIV PARA MOSTRAR LOGO-->
+      <div class="logo">
+        <img src="/assets/img/van-icon.svg" />
         <p><a href="/" class="logo-txt">VanGo</a></p>
       </div>
-        
-            <nav class="menu-topo">
-                <ul class="nav-topo-itens">
-                  <li><a href="#" class="btn-menu">Meus Contratos</a></li>
-                  <li><a href="#" class="btn-menu">Perfil<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a></li>
-                </ul>
-            </nav>
+
+      <nav class="menu-topo">
+        <ul class="nav-topo-itens">
+          <li><a href="/contratos" class="btn-menu">Meus Contratos</a></li>
+          <li>
+            <a onclick="irPerfil()" id="perfil" class="btn-menu" 
+              >Perfil<svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M7 10L12 15L17 10"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g></svg
+            ></a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <section id="hero-section-maps">
+      <div class="map-container">
+        <div class="left-side-maps">
+          <p>Busque a melhor rota para seu dia a dia</p>
+          <div class="rota">
+            <input type="text" id="origin" placeholder="Digite a origem" />
+            <input
+              type="text"
+              id="destination"
+              placeholder="Digite o destino"
+            />
+            <button id="route-btn">Calcular Rota</button>
+          </div>
+          <form class="controls">
+            <div id="divisor-data-calendario">
+              <div class="data">
+                <label for="dia">Escolha um dia:</label>
+                <select id="dia" name="dia" required>
+                  <option value="segunda">Segunda</option>
+                  <option value="terca">Terça</option>
+                  <option value="quarta">Quarta</option>
+                  <option value="quinta">Quinta</option>
+                  <option value="sexta">Sexta</option>
+                  <option value="sabado">Sabado</option>
+                  <option value="domingo">Domingo</option>
+                </select>
 
-        <div class="map-container">
+                <label for="frequencia">Frequência:</label>
+                <select id="frequencia" name="frequencia" required>
+                  <option value="uma-vez">Uma vez</option>
+                  <option value="toda-semana">Toda semana</option>
+                </select>
 
-            <div class="left-side-maps">
-                <p>Busque a melhor rota para seu dia a dia</p>
-                <div class="rota">
-                    <input type="text" id="origin" placeholder="Digite a origem">
-                    <input type="text" id="destination" placeholder="Digite o destino">
-                    <button id="route-btn">Calcular Rota</button>
-                </div>
-                <form class="controls">
-                    <div id="divisor-data-calendario">
-                        <div class="data">
-                            <label for="dia">Escolha um dia:</label>
-                                <select id="dia" name="dia" required>
-                                    <option value="segunda">Segunda</option>
-                                    <option value="terca">Terça</option>
-                                    <option value="quarta">Quarta</option>
-                                    <option value="quinta">Quinta</option>
-                                    <option value="sexta">Sexta</option>
-                                    <option value="sabado">Sabado</option>
-                                    <option value="domingo">Domingo</option>
-                                </select>
-                                
-                            <label for="frequencia">Frequência:</label>
-                                <select id="frequencia" name="frequencia" required>
-                                    <option value="uma-vez">Uma vez</option>
-                                    <option value="toda-semana">Toda semana</option>
-                                </select>
-                                
-                            <label for="ida-select">Horário de Ida:</label>
-                                <select id="ida-select" required></select>
-                                <script>
-                                    const idaSelect = document.getElementById('ida-select');
-                                    for (let h = 0; h < 24; h++) {
-                                        for (let m = 0; m < 60; m += 30) {
-                                            const hora = h.toString().padStart(2, '0');
-                                            const minuto = m.toString().padStart(2, '0');
-                                            const option = document.createElement('option');
-                                            option.value = `${hora}:${minuto}`;
-                                            option.textContent = `${hora}:${minuto}`;
-                                            idaSelect.appendChild(option);
-                                        }
-                                    }
-                                </script>
-                            <label for="volta-select" >Horário de volta:</label>
-                                <select id="volta-select" required></select>
-                                <script>
-                                    const voltaSelect = document.getElementById('volta-select');
-                                    for (let h = 0; h < 24; h++) {
-                                        for (let m = 0; m < 60; m += 30) {
-                                            const hora = h.toString().padStart(2, '0');
-                                            const minuto = m.toString().padStart(2, '0');
-                                            const option = document.createElement('option');
-                                            option.value = `${hora}:${minuto}`;
-                                            option.textContent = `${hora}:${minuto}`;
-                                            voltaSelect.appendChild(option);
-                                        }
-                                    }
-                                </script>
-                        </div>
-                        <div class="calendario"> 
-                            <!--calendario interativo ao lado-->
-                            <div id="calendario" class="flatpickr-calendar"></div>
-                        </div>
-                    </div>
-                </form>
-                <button type="submit" id="ProcurarVan">Procurar</button>
+                <label for="ida-select">Horário de Ida:</label>
+                <select id="ida-select" required></select>
+                <script>
+                  const idaSelect = document.getElementById("ida-select");
+                  for (let h = 0; h < 24; h++) {
+                    for (let m = 0; m < 60; m += 30) {
+                      const hora = h.toString().padStart(2, "0");
+                      const minuto = m.toString().padStart(2, "0");
+                      const option = document.createElement("option");
+                      option.value = `${hora}:${minuto}`;
+                      option.textContent = `${hora}:${minuto}`;
+                      idaSelect.appendChild(option);
+                    }
+                  }
+                </script>
+                <label for="volta-select">Horário de volta:</label>
+                <select id="volta-select" required></select>
+                <script>
+                  const voltaSelect = document.getElementById("volta-select");
+                  for (let h = 0; h < 24; h++) {
+                    for (let m = 0; m < 60; m += 30) {
+                      const hora = h.toString().padStart(2, "0");
+                      const minuto = m.toString().padStart(2, "0");
+                      const option = document.createElement("option");
+                      option.value = `${hora}:${minuto}`;
+                      option.textContent = `${hora}:${minuto}`;
+                      voltaSelect.appendChild(option);
+                    }
+                  }
+                </script>
+              </div>
+              <div class="calendario">
+                <!--calendario interativo ao lado-->
+                <div id="calendario" class="flatpickr-calendar"></div>
+              </div>
             </div>
-            <div id="map"></div>
+          </form>
+          <button type="submit" id="ProcurarVan">Procurar</button>
         </div>
+        <div id="map"></div>
+      </div>
     </section>
-</body>
-<html>
+  </body>
+  <html></html>
+</html>

@@ -18,7 +18,7 @@ EM CENA OCORRA UMA ANIMAÇÃO>
   body {
     font-family: Poppins;
     min-height: 100vh;
-    width: 100%;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@ a{
       to bottom,
       #10002b,
       #240046,
-      #3c096c,
+      #3c096c,  
       #5a189a,
       #7b2cbf,
       #9d4edd,
@@ -231,26 +231,27 @@ a{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100vw;
     position: relative;
   }
   
   .msg1{
     height: 400px;
     width: 600px;
-    top: 20px;
-    right: 150px;
+    right: 0%;
     position: absolute;
   }
   
   .msg1 p, .msg2 p{
-    font-size: 40px;
+    color: white;
+    font-size: 35px;
   }
   
   .msg2{
     height: 400px;
     width: 800px;
-    top: 320px;
-    left: 150px;
+    top: 30%;
+    left: 5%;
     position: absolute;
   }
   
@@ -366,7 +367,7 @@ a{
   text-align: center;
   height: 300px;
   width: 550px;
-  margin: 100px;
+  margin: 50px;
 }
 
 #sobre-message1, #sobre-message2{

@@ -22,7 +22,6 @@ if (!GMAIL_USER || !GMAIL_PASS) {
   console.error('⚠️ Variáveis de ambiente "conta_gmail" e "senha_gmail" não configuradas.');
   process.exit(1); // Finaliza o servidor se as variáveis não estiverem configuradas
 }
-
 // CONFIGURAÇÃO DO NODEMAILER
 const transporter = nodemailer.createTransport({
   service: 'gmail',

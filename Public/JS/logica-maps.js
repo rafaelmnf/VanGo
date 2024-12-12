@@ -1,6 +1,6 @@
 //Função para realizar a pesquisa de acordo com as informações contidas nas seleções do maps
 function resultados() {
-
+    
     let section = document.getElementById("perfis");
     let campoOrigem = document.getElementById("origem").value;
     let campoDestino = document.getElementById("destino").value;

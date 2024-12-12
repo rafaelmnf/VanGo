@@ -3,6 +3,8 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const app = express();
+const servico = require('./Public/JS/services/usuarioservice');
+const servicoMotorista = require('./Public/JS/services/motoristaservice');
 require('dotenv').config();
 
 app.use(express.json());
@@ -20,7 +22,7 @@ app.get('/login',  (req, res) => {
   });
 
 //ROTA PARA MOSTRAR MAPS
-app.get('/maps',  (req, res) => {
+app.get('/maps/:id',  (req, res) => {
   res.sendFile(path.join(__dirname,'Public', 'HTML', 'maps.html'));
 });
 
@@ -112,9 +114,26 @@ app.post('/send-message', (req, res) => {
     return res.status(200).json({ message: 'Mensagem enviada com sucesso!' });
   });
 });
+
+app.post('/criar-usuario', async (req,res)=>{
+  const resultado = await servico.criarUsuario(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
   
 
+app.post('/criar-motorista', async (req,res)=>{
+  const resultado = await servicoMotorista.criarMotorista(req.body);
+  res.status(resultado.sucess ? 201: 400).json(resultado)
+});
+
+app.post("/verificar-login", async(req, res)=>{
+  const {email, senha} = req.body;
+  const resultado = await servico.loginUsuario(email, senha);
+  res.json(resultado)
+})
+  
 //RODAR O SERVIDOR
 app.listen(3000, () => {
   console.log(`Servidor rodando em http://localhost:3000`);
 });
+

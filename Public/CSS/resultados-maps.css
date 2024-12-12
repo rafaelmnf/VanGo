@@ -1,0 +1,123 @@
+#hero-section-resultados{
+    background: linear-gradient(
+      to bottom,
+      #10002b,
+      #240046,
+      #3c096c,
+      #5a189a,
+      #7b2cbf,
+      #9d4edd
+    );
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+
+.container-hero-resultados{
+  background-color: #333;
+  height: 100%;
+  padding: 0px 50px;
+  width: 40vw;
+}
+
+#div-externa-bg{
+ display: flex;
+ align-items: center;
+ gap: 20px;
+ justify-content: center;
+}
+
+#resultados-div-txt{
+  margin-top: 50px;
+  background-color: #7B7B7B;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 5px 0;
+  color: #272727;
+  border-radius: 15px 15px 0 0;
+}
+
+#esquerdo-resultado{
+  background-color: #7B7B7B;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  color: #272727;
+  padding: 5px 0;
+  border-radius: 0 0 0 15px;
+}
+
+#centro-resultado{
+  background-color: #7B7B7B;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  color: #272727;
+  padding: 5px 0;
+}
+
+#direito-resultado{
+  background-color: #7B7B7B;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  color: #272727;
+  padding: 5px 0;
+  border-radius: 0 0 15px 0;
+}
+
+#perfils{
+  overflow: scroll;
+  height: 100%;
+}
+
+.card-perfil{
+  margin: 50px 0 0 0;
+  background-color: rgb(221, 221, 221);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+#div-foto-info{
+  display: flex;
+  gap: 20px;
+}
+
+.border-perfil{
+  margin: 0px 10px;
+  width: 18%;
+  background-color: #242424;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto-perfil{
+  
+  width: 70%;
+  height: 70%;
+  background-color: #686868;
+  border-radius: 50%;
+}
+
+.btn-resultados{
+  align-self: end;
+  background-color: #555;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-resultados:hover {
+  background-color: #777;
+}

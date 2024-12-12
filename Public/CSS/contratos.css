@@ -1,0 +1,64 @@
+.hero-section {
+    background: linear-gradient(
+      to bottom,
+      #10002b,
+      #240046,
+      #3c096c,  
+      #5a189a,
+      #7b2cbf,
+      #9d4edd,
+      #c77dff
+    );
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* ----------------------scroll bar--------------------- */
+  .card-container::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .card-container::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  .card-container::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  /* ----------------------------------------------- */
+
+.contratos-container{
+    border: 5px solid black;
+    height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    height: 80vh;
+    width: 70vw;
+    background-color: #333;
+    border-radius: 20px;
+    overflow: auto;
+    padding: 1.5%;
+}
+  /* overflow auto deixa scrollavel */
+
+.card-contratos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    width: 67vw;
+    background-color: #ffff;
+    border-radius: 20px;
+    margin-bottom: 2.5%;
+    padding: 1%;
+    color: white;
+}

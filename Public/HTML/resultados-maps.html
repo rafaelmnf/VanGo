@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca</title>
+
+    <!-- FONT Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="/CSS/resultados-maps.css">
+    <link rel="stylesheet" href="/CSS/maps.css">
+
+    <script defer src="/JS/data/contratos-data.js"></script>
+    <script defer src="/JS/busca-maps.js"></script>
+</head>
+
+<body>
+    <header id="barra-de-cima-maps">
+       <!--DIV PARA MOSTRAR LOGO-->
+       <div class="logo">
+        <img src="/assets/img/van-icon.svg">
+        <p><a href="/" class="logo-txt">VanGo</a></p>
+      </div>
+        
+            <nav class="menu-topo">
+                <ul class="nav-topo-itens">
+                  <li><a href="/contratos" class="btn-menu">Meus Contratos</a></li>
+                  <li><a onclick="irPerfil()" id="perfil"  class="btn-menu">Perfil<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a></li>
+                </ul>
+            </nav>
+    </header>
+    <section id="hero-section-resultados">
+        <div class="container-hero-resultados">
+            <!--Depois vai precisar colocar os dados de acordo com o que foi colocado no banco de dados-->
+                <div id="resultados-div-txt">
+                    <h1>RESULTADOS DA BUSCA</h1>
+                </div>
+                <div id="div-externa-bg">
+                    <div id="esquerdo-resultado">
+                        <h2 id="horario-resultado"></h2>
+                    </div>
+                    <div id="centro-resultado">
+                        <h2 id="data-resultado"></h2>
+                    </div>
+                    <div id="direito-resultado">
+                        <h2 id="frequencia-resultado"></h2>
+                    </div>
+                </div>
+                
+            <div id="perfis-busca-maps">
+                <!--Vai colocando conforme os resultados-->
+            </div>
+        </div>
+    </section>
+
+</body>
+<html>

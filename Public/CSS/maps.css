@@ -15,8 +15,8 @@
       #e0aaff,
       #ffffff
     );
-    max-height: 100vh;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     color: white;
     z-index: 0;
   }
@@ -100,62 +100,81 @@
       #9d4edd
     );
     width: 100%;
-    height: 100%;
+    height: 92vh;
     z-index: 0;
   }
   
   #barra-de-cima-maps{
     display: flex;
     align-items: center;
-    background-color: #2B2B2B;
+    background-color: #333;
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     padding: 30px 150px;
   }
+
   .map-container{
     height: 90vh;
     display: flex;
-    padding: 50px 150px;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: start;
+    padding: 30px 30px;
+    gap: 50px;
     width: 100%;
   }
+  /* ----------------------scroll bar--------------------- */
+  .left-side-maps::-webkit-scrollbar {
+    width: 5px;
+  }
   
+  .left-side-maps::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  .left-side-maps::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  /* ----------------------------------------------- */
   .left-side-maps{
+    overflow: auto;
     display: flex;
-    justify-content: center;
+    border-radius: 10px;
     flex-direction: column;
-    width: 30vw;
-    height: auto;
-    background-color: #272727;
+    justify-content: center;
+    max-width: 40vw;
+    max-height: 80vh;
+    background-color: #333;
     padding: 30px;
   }
   
   .left-side-maps p{
-    font-size: 44px;
+    margin-top: 10%;
+    font-size: 30px;
     color: white;
   }
   
+  .left-side-maps button{
+    height: auto;
+    font-size: 15px;
+    color: white;
+  }
+
   .controls {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   
   .controls input {
     padding: 8px;
     width: 100%;
   }
-  .controls button {
+
+
+  .left-side-maps button {
     padding: 8px 16px;
   }
   
-  .controls input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    font-family: Poppins;
-  }
-  
-  .controls button {
+  .left-side-maps button {
     font-family: Poppins;
     background-color: #5a189a;
     color: white;
@@ -166,16 +185,31 @@
     transition: background-color 0.3s ease;
   }
   
-  .controls button:hover {
+  .left-side-maps button:hover {
     background-color: #3c096c;
   }
   
   .rota{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
     width: 100%;
-    margin-bottom: 40px;
+    height: 20%;
+  }
+
+
+
+  .rota input {
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .rota input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
   }
   
   .data{
@@ -217,6 +251,6 @@
   }
   
   #map {
-    height: 70vh;
-    width: 40vw;
+    height: 80vh;
+    width: 50vw;
   }

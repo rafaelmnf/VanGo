@@ -46,6 +46,11 @@ align-items: center;
     overflow: auto;
     padding: 1.5%;
 }
+
+.card-container h1{
+    color: white;
+    margin-bottom: 2%;
+}
   /* overflow auto deixa scrollavel */
 
 

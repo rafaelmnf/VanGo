@@ -38,9 +38,10 @@ function salvarContratosAdicionados() {
 
 // Função para atualizar o HTML dos contratos adicionados
 function atualizarHTMLContratosAdicionados() {
-  meusContratosAdicionadosHTML = '';
+  meusContratosAdicionadosHTML = '<h1>Meus Contratos:</h1>';
   meusContratosAdicionados.forEach((contrato) => {
     meusContratosAdicionadosHTML += `
+     
 <div class="card-contratos">
                         <div id="div-foto-info ">
                             <div class="border-perfil">

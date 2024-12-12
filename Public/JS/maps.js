@@ -312,11 +312,6 @@ function calculateRoute() {
 // Carrega o mapa quando o script for carregado
 window.onload = initMap;
 
-const botaoProcurarVan = document.getElementById("ProcurarVan");
-botaoProcurarVan.addEventListener("click", function() {
-    window.location.href = "/resultados"
-});
-
   // Calendario e manipulação de data
   document.addEventListener("DOMContentLoaded", function () {
     const diaSelect = document.getElementById("dia");

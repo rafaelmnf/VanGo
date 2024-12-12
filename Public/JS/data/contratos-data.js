@@ -8,7 +8,8 @@ const contratos = [
         horarioIda: "08:00",
         horarioVolta: "18:00",
         van: "Fiat Ducato",
-        placa: "DEF-4567"
+        placa: "DEF-4567",
+        vaga: 5
     },
     {
         id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
@@ -19,7 +20,8 @@ const contratos = [
         horarioIda: "09:00",
         horarioVolta: "19:00",
         van: "Renault Master",
-        placa: "GHI-8910"
+        placa: "GHI-8910",
+        vaga: 2
     },
     {
         id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
@@ -30,7 +32,8 @@ const contratos = [
         horarioIda: "07:00",
         horarioVolta: "17:00",
         van: "Volkswagen Crafter",
-        placa: "JKL-1123"
+        placa: "JKL-1123",
+        vaga: 8
     },
     {
         id: "54e0eccd-8f36-462b-b68a-8182611d9add",
@@ -41,7 +44,8 @@ const contratos = [
         horarioIda: "06:30",
         horarioVolta: "16:30",
         van: "Mercedes-Benz Vito",
-        placa: "MNO-3456"
+        placa: "MNO-3456",
+        vaga: 6
     },
     {
         id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -52,7 +56,8 @@ const contratos = [
         horarioIda: "08:30",
         horarioVolta: "18:30",
         van: "Ford Transit",
-        placa: "PQR-7890"
+        placa: "PQR-7890",
+        vaga: 2
     },
     {
         id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
@@ -63,7 +68,8 @@ const contratos = [
         horarioIda: "07:15",
         horarioVolta: "17:15",
         van: "Hyundai H350",
-        placa: "STU-1011"
+        placa: "STU-1011",
+        vaga: 4
     },
     {
         id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
@@ -74,7 +80,8 @@ const contratos = [
         horarioIda: "08:45",
         horarioVolta: "18:45",
         van: "Peugeot Boxer",
-        placa: "VWX-1314"
+        placa: "VWX-1314",
+        vaga: 7
     },
     {
         id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
@@ -85,7 +92,8 @@ const contratos = [
         horarioIda: "09:30",
         horarioVolta: "19:30",
         van: "Citroën Jumper",
-        placa: "YZA-1516"
+        placa: "YZA-1516",
+        vaga: 6
     },
     {
         id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
@@ -96,7 +104,8 @@ const contratos = [
         horarioIda: "06:45",
         horarioVolta: "16:45",
         van: "Iveco Daily",
-        placa: "BCD-1718"
+        placa: "BCD-1718",
+        vaga: 5
     },
     {
         id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
@@ -107,7 +116,8 @@ const contratos = [
         horarioIda: "07:00",
         horarioVolta: "17:00",
         van: "Toyota Hiace",
-        placa: "EFG-1920"
+        placa: "EFG-1920",
+        vaga: 3
     },
     {
         id: "5968897c-4d27-4872-89f6-5bcb052746d7",
@@ -118,7 +128,8 @@ const contratos = [
         horarioIda: "08:15",
         horarioVolta: "18:15",
         van: "Chevrolet Express",
-        placa: "HIJ-2122"
+        placa: "HIJ-2122",
+        vaga: 4
     },
     {
         id: "aad29d11-ea98-41ee-9285-b916638cac4a",
@@ -129,7 +140,8 @@ const contratos = [
         horarioIda: "07:30",
         horarioVolta: "17:30",
         van: "Nissan NV350",
-        placa: "KLM-2324"
+        placa: "KLM-2324",
+        vaga: 8
     },
     {
         id: "04701903-bc79-49c6-bc11-1af7e3651358",
@@ -140,7 +152,8 @@ const contratos = [
         horarioIda: "06:00",
         horarioVolta: "16:00",
         van: "Mitsubishi L300",
-        placa: "NOP-2526"
+        placa: "NOP-2526",
+        vaga: 11
     },
     {
         id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
@@ -151,7 +164,8 @@ const contratos = [
         horarioIda: "08:20",
         horarioVolta: "18:20",
         van: "Kia Bongo",
-        placa: "QRS-2728"
+        placa: "QRS-2728",
+        vaga: 12
     },
     {
         id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
@@ -162,7 +176,8 @@ const contratos = [
         horarioIda: "07:50",
         horarioVolta: "17:50",
         van: "LDV Maxus",
-        placa: "TUV-2920"
+        placa: "TUV-2920",
+        vaga: 9
     },
     {
         id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
@@ -173,6 +188,31 @@ const contratos = [
         horarioIda: "09:00",
         horarioVolta: "19:00",
         van: "Ram Promaster",
-        placa: "WXZ-3132"
-    }
+        placa: "WXZ-3132",
+        vaga: 1
+    },
+    {
+        id: "8ae432b6-2b7e-4c21-bd85-9c0b7659b123",
+        nomeDoMotorista: "Marcos Vinicius",
+        preco: 3900,
+        destino: "Rua dos Andradas, Porto Alegre, RS",
+        origem: "Avenida Borges de Medeiros, Porto Alegre, RS",
+        horarioIda: "07:20",
+        horarioVolta: "17:20",
+        van: "Sprinter Mercedes",
+        placa: "OPQ-2020",
+        vaga: 2
+    },
+    {
+        id: "1b23cd56-8d76-4f50-9834-a89dc781f6ab",
+        nomeDoMotorista: "Sandra Regina",
+        preco: 4100,
+        destino: "Praça da Sé, São Paulo, SP",
+        origem: "Avenida Paulista, São Paulo, SP",
+        horarioIda: "09:00",
+        horarioVolta: "19:00",
+        van: "Volkswagen Transporter",
+        placa: "XYZ-3535",
+        vaga: 3
+    },
 ];

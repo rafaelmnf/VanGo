@@ -62,8 +62,8 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   ></path>
-                </g></svg
-            ></a>
+                </g></svg>
+            </a>
           </li>
         </ul>
       </nav>
@@ -81,7 +81,7 @@
             />
             <button id="route-btn">Calcular Rota</button>
           </div>
-          <form class="controls">
+          <form id="busca-maps" class="controls">
             <div id="divisor-data-calendario">
               <div class="data">
                 <label for="dia">Escolha um dia:</label>
@@ -117,7 +117,9 @@
                   }
                 </script>
                 <label for="volta-select">Horário de volta:</label>
-                <select id="volta-select" required></select>
+                <select id="volta-select" required>
+                  <option value="semVolta">Sem Volta</option>
+                </select>
                 <script>
                   const voltaSelect = document.getElementById("volta-select");
                   for (let h = 0; h < 24; h++) {
@@ -143,6 +145,6 @@
         <div id="map"></div>
       </div>
     </section>
+
   </body>
-  <html></html>
 </html>
